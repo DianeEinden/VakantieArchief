@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SE22_VakantieArchief", "SE2
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Klassen", "Klassen\Klassen.csproj", "{67EA94DC-59FA-41F2-8112-FE8F2DAF9421}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseKoppeling", "DatabaseKoppeling\DatabaseKoppeling.csproj", "{A4C37B37-6E53-4C89-822E-BA113D6D469D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTest", "UnitTest\UnitTest.csproj", "{BFFB7298-5FE4-4CB6-8D3C-D40279D77F78}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{67EA94DC-59FA-41F2-8112-FE8F2DAF9421}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{67EA94DC-59FA-41F2-8112-FE8F2DAF9421}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{67EA94DC-59FA-41F2-8112-FE8F2DAF9421}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A4C37B37-6E53-4C89-822E-BA113D6D469D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4C37B37-6E53-4C89-822E-BA113D6D469D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4C37B37-6E53-4C89-822E-BA113D6D469D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4C37B37-6E53-4C89-822E-BA113D6D469D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BFFB7298-5FE4-4CB6-8D3C-D40279D77F78}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BFFB7298-5FE4-4CB6-8D3C-D40279D77F78}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BFFB7298-5FE4-4CB6-8D3C-D40279D77F78}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BFFB7298-5FE4-4CB6-8D3C-D40279D77F78}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
