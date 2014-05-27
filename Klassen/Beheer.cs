@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DatabaseKoppeling;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -30,9 +31,12 @@ namespace Klassen
             // TODO
         }
 
-        public void Inloggen()
+        public bool Inloggen(string naam, string ww)
         {
             // TODO
+            DataKoppeling k = new DataKoppeling();
+            Gebruiker g = k.Login(naam, ww);
+            return g != null;
         }
 
         public void ReisAanpassen()
