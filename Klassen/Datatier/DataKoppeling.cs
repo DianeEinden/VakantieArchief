@@ -42,5 +42,38 @@ namespace DatabaseKoppeling
 
         }
         #endregion
+
+        #region AANMELDEN
+        public Gebruiker Login(string username, string wachtwoord)
+        {
+            using (OracleConnection conn = new OracleConnection(constring))
+            {
+                OracleCommand cmd = new OracleCommand("INSERT INTO GEBRUIKER VALUES (':naam',':wachtwoord'); ", conn);
+                cmd.Parameters.Add("naam", username);
+                cmd.Parameters.Add("wachtwoord", wachtwoord);
+                
+
+                OracleDataReader rdr = cmd.ExecuteReader();
+                if (rdr.Read())
+                {
+                    Gebruiker g = new Gebruiker(rdr["naam"].ToString(), rdr["wachtwoord"].ToString());
+                    return g;
+                }
+                return null;
+            }
+
+        }
+        #endregion
+
+//Aanmelden()
+//ReisAanpassen()
+//ReisBekijken()
+//ReisDelen()
+//ReisOpzoeken()
+//ReisToevoegen()
+//ReisVerwijderen()
+//Sorteren()
+//ToString()
+//Uitloggen()
     }
 }

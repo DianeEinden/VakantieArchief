@@ -11,6 +11,7 @@ namespace Klassen
     {
         // DATA
         public List<Reis> reisLijst;
+        DataKoppeling k = new DataKoppeling();
 
         // CONSTRUCTOR
         public Beheer()
@@ -31,13 +32,13 @@ namespace Klassen
             // TODO
         }
 
+        #region INLOGGEN
         public bool Inloggen(string naam, string ww)
         {
-            // TODO
-            DataKoppeling k = new DataKoppeling();
             Gebruiker g = k.Login(naam, ww);
             return g != null;
         }
+        #endregion
 
         public void ReisAanpassen()
         {
