@@ -15,12 +15,15 @@ namespace DatabaseKoppeling
 {
     public class DataKoppeling
     {
-        private string constring;
+        private static OracleConnection connection;
+
+        public string  constring;
 
         public DataKoppeling()
         {
-            constring = Settings.Default.ConnectieString;
+            //constring = Settings.Default.ConnectieString;
             // Connection = new OracleConnection(constring);
+            connection = new OracleConnection("User Id=" + "SE22_VAKANTIEARCHIEF" + " ;Password=" + "handyroosje" + ";Data Source=" + " //localhost:1521/xe" + ";");
         }
 
         #region LOGIN
@@ -44,36 +47,47 @@ namespace DatabaseKoppeling
         #endregion
 
         #region AANMELDEN
-        public Gebruiker Login(string username, string wachtwoord)
+        public void Login(Gebruiker gebruiker)
         {
             using (OracleConnection conn = new OracleConnection(constring))
             {
                 OracleCommand cmd = new OracleCommand("INSERT INTO GEBRUIKER VALUES (':naam',':wachtwoord'); ", conn);
-                cmd.Parameters.Add("naam", username);
-                cmd.Parameters.Add("wachtwoord", wachtwoord);
+                cmd.Parameters.Add("naam", gebruiker.Naam);
+                cmd.Parameters.Add("wachtwoord", gebruiker.Wachtwoord);
                 
-
-                OracleDataReader rdr = cmd.ExecuteReader();
-                if (rdr.Read())
-                {
-                    Gebruiker g = new Gebruiker(rdr["naam"].ToString(), rdr["wachtwoord"].ToString());
-                    return g;
-                }
-                return null;
+                cmd.ExecuteNonQuery();
             }
-
         }
-        #endregion
+        #endregion 
 
-//Aanmelden()
-//ReisAanpassen()
-//ReisBekijken()
-//ReisDelen()
+
+
+
+
 //ReisOpzoeken()
 //ReisToevoegen()
 //ReisVerwijderen()
 //Sorteren()
 //ToString()
 //Uitloggen()
+
+        //public List<Land> AlleLanden()
+        //{
+        //    using (OracleConnection conn = new OracleConnection(constring))
+        //    {
+        //        OracleCommand cmd = new OracleCommand("select * from land where gebruikersnaam=:naam", conn);
+        //        OracleDataReader rdr = cmd.ExecuteReader();
+        //        List<Land> ret=new List<Land>();
+        //        if (rdr.Read())
+        //        {
+        //            ret = new Land(Convert.ToDouble(rdr["aanta;lInwoners"]), rdr["cultuur"].ToString(), rdr["hoodstad"].ToString(), rdr["landcode"].ToString(), Convert.ToInt32(rdr["landnummer"]), rdr["ligging"].ToString(), rdr["naam"].ToString(), Convert.ToDouble(rdr["oppervlakte"]), (Land.Staatsvorm)Enum.Parse(typeof(Land.Staatsvorm), Convert.ToString(rdr["staatsvorm"])), Convert.ToBoolean(rdr["tijdsverschil"]), rdr["valuta"].ToString(), rdr["voertaal"].ToString());    
+        //            return ret;
+        //        }
+        //        return null;
+        //    }
+
+        //}
+
+
     }
 }

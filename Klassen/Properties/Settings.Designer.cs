@@ -23,16 +23,12 @@ namespace Klassen.Properties {
             }
         }
         
-        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=MyOracleDB;User Id=SE22_VAKANTIEARCHIEF;Password=handyroosje; Integra" +
-            "ted Security=no;")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=MyOracleDB;User Id=SE22_VAKANTIEARCHIEF;Password=handyroosje;")]
         public string ConnectieString {
             get {
                 return ((string)(this["ConnectieString"]));
-            }
-            set {
-                this["ConnectieString"] = value;
             }
         }
     }

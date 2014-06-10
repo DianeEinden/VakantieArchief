@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DatabaseKoppeling;
+using Oracle.DataAccess.Client;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -53,6 +55,24 @@ namespace Klassen
             plaatsLijst = new List<Plaats>();
         }
 
+        public Land(string landCode)
+        {
+            using (OracleConnection conn = new OracleConnection(new DataKoppeling().constring))
+            {
+                OracleCommand cmd = new OracleCommand("select * from land where landCode=:landCode", conn);               
+                cmd.Parameters.Add("landCode", landCode);
+                
+                OracleDataReader rdr = cmd.ExecuteReader();
+                if (rdr.Read())
+                {
+                    this.cultuur = rdr["cultuur"].ToString();
+                    this.aantalInwoners = Convert.ToInt32(rdr["aantalinwoners"]);
+                } 
+            }
+            //BoekingLijst = Boeking.LeesBoekingenVanLand(landCode);
+            // TODO Zelfde als LeesAlleLanden in de datakoppeling
+        }
+            
         // PROPERTIES
         public double AantalInwoners
         {

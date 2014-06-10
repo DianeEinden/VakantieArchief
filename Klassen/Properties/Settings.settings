@@ -2,8 +2,8 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Klassen.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="ConnectieString" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Data Source=MyOracleDB;User Id=SE22_VAKANTIEARCHIEF;Password=handyroosje; Integrated Security=no;</Value>
+    <Setting Name="ConnectieString" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Data Source=MyOracleDB;User Id=SE22_VAKANTIEARCHIEF;Password=handyroosje;</Value>
     </Setting>
   </Settings>
 </SettingsFile>

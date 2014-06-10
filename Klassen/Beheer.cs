@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Klassen.Properties;
+using DatabaseKoppeling;
 
 namespace Klassen
 {
@@ -22,14 +24,14 @@ namespace Klassen
         // PROPERTIES
         public List<Reis> ReisLijst
         {
-            get { return new List<Reis>(reisLijst); }
+            get { return new List<Reis>(this.reisLijst); }
         }
 
         // METHODEN
         
         public void Aanmelden()
         {
-            // TODO
+           // TODO
         }
 
         #region INLOGGEN

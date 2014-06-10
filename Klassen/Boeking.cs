@@ -109,6 +109,15 @@ namespace Klassen
             get { return new List<Reis>(reisLijst); }
         }
 
+        // ALLE LANDEN
+        public static List<Land> AlleLanden()
+        {
+            List<Land> ret = new List<Land>();
+            // Database: select * from land
+            // en roep elke keer constructoer van Land aan.
+            return ret;
+        }
+
         // TOSTRING
         public override string ToString()
         {
