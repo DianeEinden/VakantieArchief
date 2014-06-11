@@ -8,7 +8,7 @@ using Klassen;
 
 namespace SE22_VakantieArchief
 {
-    public partial class Aanmelden : System.Web.UI.Page
+    public partial class Test : System.Web.UI.Page
     {
         private Klassen.Beheer beheerder;
         protected void Page_Load(object sender, EventArgs e)
@@ -16,16 +16,9 @@ namespace SE22_VakantieArchief
             this.beheerder = new Klassen.Beheer();
         }
 
-        protected void BtAanmelden_Click(object sender, EventArgs e)
+        protected void Button1_Click(object sender, EventArgs e)
         {
-            try
-            {
-                beheerder.Aanmelden(TbGebruikersnaam.Text, TbWachtwoord.Text);
-            }
-            catch(Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
+            TextBox3.Text = TextBox1.Text + TextBox2.Text;
         }
     }
 }

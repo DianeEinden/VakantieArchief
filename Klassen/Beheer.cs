@@ -55,17 +55,10 @@ namespace Klassen
         }
         #endregion
 
-        public void EuropeseReizenList()
-        {
-            foreach(Land landjes in k.EuropeseReizenLijst())
-            {
-                landenLijst.Add(landjes); 
-            }
-        }
 
         public List<Land> EuropeseReizen()
         {
-            List<Land> land = (List<Land>)k.EuropeseReizenLijst();
+            List<Land> land = k.EuropeseReizenLijst();
             return land;
         }
 

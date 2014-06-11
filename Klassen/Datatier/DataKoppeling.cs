@@ -83,13 +83,26 @@ namespace DatabaseKoppeling
             {
                 using (OracleConnection conn = connection)
                 {
-                    OracleCommand cmd = new OracleCommand("select * from land where ligging = Europa", conn);
+                    OracleCommand cmd = new OracleCommand("select * from land where ligging = 'Europa'", conn);
                     connection.Open();
                     OracleDataReader rdr = cmd.ExecuteReader();
                     List<Land> europeseLanden = new List<Land>();
                     if (rdr.Read())
                     {
-                        europeseLanden.Add(new Land(Convert.ToDouble(rdr["aantalInwoners"]), rdr["cultuur"].ToString(), rdr["hoodstad"].ToString(), rdr["landcode"].ToString(), Convert.ToInt32(rdr["landnummer"]), rdr["ligging"].ToString(), rdr["naam"].ToString(), Convert.ToDouble(rdr["oppervlakte"]), (Land.Staatsvorm)Convert.ToInt32(rdr["staatsvorm"]), Convert.ToBoolean(rdr["tijdsverschil"]), rdr["valuta"].ToString(), rdr["voertaal"].ToString()));
+                        double aantalInwoners = Convert.ToDouble(rdr["aantalInwoners"]);
+                        string cultuur = Convert.ToString(rdr["cultuur"]);
+                        string hoofdstad = Convert.ToString(rdr["hoofdstad"]);
+                        string landcode = Convert.ToString(rdr["landcode"]);
+                        int landnummer = Convert.ToInt32(rdr["landnummer"]);
+                        string ligging = Convert.ToString(rdr["ligging"]);
+                        string naam = Convert.ToString(rdr["naam"]);
+                        double oppervlakte = Convert.ToDouble(rdr["oppervlakte"]);
+                        Land.Staatsvorm staadsvorm = (Land.Staatsvorm)Enum.Parse(typeof(Land.Staatsvorm), Convert.ToString(rdr["staatsvorm"]));
+                        char tijdsverschil = Convert.ToChar(rdr["tijdsverschil"]);
+                        string valuta = Convert.ToString(rdr["valuta"]);
+                        string voertaal = Convert.ToString(rdr["voertaal"]);
+
+                        europeseLanden.Add(new Land(aantalInwoners, cultuur, hoofdstad, landcode, landnummer, ligging, naam, oppervlakte, staadsvorm, tijdsverschil, valuta, voertaal));
                         return europeseLanden;                                                                                                                                                                                                              
                     }
                     return europeseLanden;

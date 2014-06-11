@@ -8,7 +8,7 @@ using Klassen;
 
 namespace SE22_VakantieArchief
 {
-    public partial class Aanmelden : System.Web.UI.Page
+    public partial class BeginScherm : System.Web.UI.Page
     {
         private Klassen.Beheer beheerder;
         protected void Page_Load(object sender, EventArgs e)
@@ -16,13 +16,19 @@ namespace SE22_VakantieArchief
             this.beheerder = new Klassen.Beheer();
         }
 
-        protected void BtAanmelden_Click(object sender, EventArgs e)
+        protected void BtEuropa_Click(object sender, EventArgs e)
         {
+            LbReizen.Items.Clear();
+
+            List<Land> landen = new List<Land>(beheerder.EuropeseReizen());
             try
             {
-                beheerder.Aanmelden(TbGebruikersnaam.Text, TbWachtwoord.Text);
+                foreach (Land landjes in landen)
+                {
+                    LbReizen.Items.Add(landjes.ToString());
+                }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }

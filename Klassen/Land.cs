@@ -30,14 +30,14 @@ namespace Klassen
         private string naam;
         private double oppervlakte;
         private Staatsvorm staatsvorm;
-        private bool tijdsverschil;
+        private char tijdsverschil;
         private string valuta;
         private string voertaal;
         private List<Boeking> boekingLijst;
         private List<Plaats> plaatsLijst;
 
         // CONSTRUCTOR
-        public Land(double aantalInwoners, string cultuur, string hoofdstad, string landcode, int landnummer, string ligging, string naam, double oppervlakte, Staatsvorm staatsvorm, bool tijdsverschil, string valuta, string voertaal)
+        public Land(double aantalInwoners, string cultuur, string hoofdstad, string landcode, int landnummer, string ligging, string naam, double oppervlakte, Staatsvorm staatsvorm, char tijdsverschil, string valuta, string voertaal)
         {
             this.aantalInwoners = aantalInwoners;
             this.cultuur = cultuur;
@@ -119,7 +119,7 @@ namespace Klassen
             get { return staatsvorm; }
         }
 
-        public bool Tijdsverschil
+        public char Tijdsverschil
         {
             get { return tijdsverschil; }
         }
