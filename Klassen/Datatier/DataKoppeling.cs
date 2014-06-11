@@ -56,47 +56,57 @@ namespace DatabaseKoppeling
             {
                 connection.Close();
             }
-
-
         }
 
         #endregion
 
         #region AANMELDEN
-        public void Login(Gebruiker gebruiker)
+        public void Aanmelden(string naam, string wachtwoord)
         {
             // using (OracleConnection conn = new OracleConnection(constring))
             using (OracleConnection conn = connection)
             {
                 OracleCommand cmd = new OracleCommand("INSERT INTO GEBRUIKER VALUES (':naam',':wachtwoord'); ", conn);
-                cmd.Parameters.Add("naam", gebruiker.Naam);
-                cmd.Parameters.Add("wachtwoord", gebruiker.Wachtwoord);
-
+                cmd.Parameters.Add("naam", naam);
+                cmd.Parameters.Add("wachtwoord", wachtwoord);
+                connection.Open();
                 cmd.ExecuteNonQuery();
+                connection.Close();
             }
         }
         #endregion 
 
-        //#region ALLE EUROPA REIZEN
-        //public Land EuropeseReizen()
-        //{
-        //    using (OracleConnection conn = new OracleConnection(constring))
-        //    {
-        //        OracleCommand cmd = new OracleCommand("select * from land where ligging = europa", conn);
-        //        OracleDataReader rdr = cmd.ExecuteReader();
-        //        if (rdr.Read())
-        //        {
-        //            //Land l = new Land(Convert.ToDouble(rdr["Ligging"].ToString()));
-        //            //return l;
-        //        }
-        //        return null;
-        //    }
+        #region EUROPESE REIZEN
+        public List<Land> EuropeseReizenLijst()
+        {
+            try
+            {
+                using (OracleConnection conn = connection)
+                {
+                    OracleCommand cmd = new OracleCommand("select * from land where ligging = Europa", conn);
+                    connection.Open();
+                    OracleDataReader rdr = cmd.ExecuteReader();
+                    List<Land> europeseLanden = new List<Land>();
+                    if (rdr.Read())
+                    {
+                        europeseLanden.Add(new Land(Convert.ToDouble(rdr["aantalInwoners"]), rdr["cultuur"].ToString(), rdr["hoodstad"].ToString(), rdr["landcode"].ToString(), Convert.ToInt32(rdr["landnummer"]), rdr["ligging"].ToString(), rdr["naam"].ToString(), Convert.ToDouble(rdr["oppervlakte"]), (Land.Staatsvorm)Convert.ToInt32(rdr["staatsvorm"]), Convert.ToBoolean(rdr["tijdsverschil"]), rdr["valuta"].ToString(), rdr["voertaal"].ToString()));
+                        return europeseLanden;                                                                                                                                                                                                              
+                    }
+                    return europeseLanden;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+        #endregion
 
-        //}
-
-        //#endregion
-
-
+        
 
 
         //ReisOpzoeken()
@@ -108,14 +118,14 @@ namespace DatabaseKoppeling
 
         //public List<Land> AlleLanden()
         //{
-        //    using (OracleConnection conn = new OracleConnection(constring))
+        //    using (OracleConnection conn = connection)
         //    {
         //        OracleCommand cmd = new OracleCommand("select * from land where gebruikersnaam=:naam", conn);
         //        OracleDataReader rdr = cmd.ExecuteReader();
         //        List<Land> ret = new List<Land>();
         //        if (rdr.Read())
         //        {
-        //            ret = new Land(Convert.ToDouble(rdr["aanta;lInwoners"]), rdr["cultuur"].ToString(), rdr["hoodstad"].ToString(), rdr["landcode"].ToString(), Convert.ToInt32(rdr["landnummer"]), rdr["ligging"].ToString(), rdr["naam"].ToString(), Convert.ToDouble(rdr["oppervlakte"]), (Land.Staatsvorm)Enum.Parse(typeof(Land.Staatsvorm), (Land.Staatsvorm)Convert.ToInt32(Rdr["staatsvorm"]), Convert.ToBoolean(rdr["tijdsverschil"]), rdr["valuta"].ToString(), rdr["voertaal"].ToString()));
+        //            ret = new Land(Convert.ToDouble(rdr["aantalInwoners"]), rdr["cultuur"].ToString(), rdr["hoodstad"].ToString(), rdr["landcode"].ToString(), Convert.ToInt32(rdr["landnummer"]), rdr["ligging"].ToString(), rdr["naam"].ToString(), Convert.ToDouble(rdr["oppervlakte"]), (Land.Staatsvorm)Convert.ToInt32(rdr["staatsvorm"]), Convert.ToBoolean(rdr["tijdsverschil"]), rdr["valuta"].ToString(), rdr["voertaal"].ToString());
         //            return ret;
         //        }
 

@@ -70,7 +70,7 @@ namespace Klassen
         //        }
         //    }
         //    //BoekingLijst = Boeking.LeesBoekingenVanLand(landCode);
-        //    // TODO Zelfde als LeesAlleLanden in de datakoppeling
+        //   // TODO Zelfde als LeesAlleLanden in de datakoppeling
         //}
             
         // PROPERTIES

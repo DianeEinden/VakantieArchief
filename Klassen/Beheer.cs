@@ -32,11 +32,19 @@ namespace Klassen
             get { return new List<Land>(this.landenLijst); }
         }
 
+
         // METHODEN
         
-        public void Aanmelden()
+        public void Aanmelden(string naam, string ww)
         {
-           // TODO
+            try
+            {
+                k.Aanmelden(naam, ww);
+            }
+            catch
+            {
+                throw new Exception("Gegevens al komen");
+            }
         }
 
         #region INLOGGEN
@@ -47,16 +55,19 @@ namespace Klassen
         }
         #endregion
 
+        public void EuropeseReizenList()
+        {
+            foreach(Land landjes in k.EuropeseReizenLijst())
+            {
+                landenLijst.Add(landjes); 
+            }
+        }
 
-        //public List<Land> EuropeseReizen
-        //{
-        //    foreach(Land landje in this.k.EuropeseReizen())
-        //    {
-        //        this.sporen.Add(landje);
-        //    }
-
-        //    return this.landenLijst;
-        //}
+        public List<Land> EuropeseReizen()
+        {
+            List<Land> land = (List<Land>)k.EuropeseReizenLijst();
+            return land;
+        }
 
         //public void ReisAanpassen()
         //{

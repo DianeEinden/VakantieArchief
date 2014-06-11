@@ -58,18 +58,17 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="BeginScherm.aspx" />
+    <Content Include="Aanmelden.aspx" />
     <Content Include="Default.aspx" />
-    <Content Include="EuropeseReizen.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BeginScherm.aspx.cs">
-      <DependentUpon>BeginScherm.aspx</DependentUpon>
+    <Compile Include="Aanmelden.aspx.cs">
+      <DependentUpon>Aanmelden.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="BeginScherm.aspx.designer.cs">
-      <DependentUpon>BeginScherm.aspx</DependentUpon>
+    <Compile Include="Aanmelden.aspx.designer.cs">
+      <DependentUpon>Aanmelden.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -77,13 +76,6 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="EuropeseReizen.aspx.cs">
-      <DependentUpon>EuropeseReizen.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="EuropeseReizen.aspx.designer.cs">
-      <DependentUpon>EuropeseReizen.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

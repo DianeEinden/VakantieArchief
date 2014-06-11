@@ -10,7 +10,7 @@
 namespace SE22_VakantieArchief {
     
     
-    public partial class BeginScherm {
+    public partial class Aanmelden {
         
         /// <summary>
         /// form1 control.
@@ -22,48 +22,30 @@ namespace SE22_VakantieArchief {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// BtEuropa control.
+        /// TbGebruikersnaam control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtEuropa;
+        protected global::System.Web.UI.WebControls.TextBox TbGebruikersnaam;
         
         /// <summary>
-        /// BtAfrika control.
+        /// TbWachtwoord control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtAfrika;
+        protected global::System.Web.UI.WebControls.TextBox TbWachtwoord;
         
         /// <summary>
-        /// BtAzie control.
+        /// BtAanmelden control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtAzie;
-        
-        /// <summary>
-        /// BtAmerika control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtAmerika;
-        
-        /// <summary>
-        /// btOceanie control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btOceanie;
+        protected global::System.Web.UI.WebControls.Button BtAanmelden;
     }
 }
