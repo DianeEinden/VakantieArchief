@@ -60,11 +60,29 @@ namespace DatabaseKoppeling
         }
         #endregion 
 
+        #region ALLE EUROPA REIZEN
+        public Land EuropeseReizen()
+        {
+            using (OracleConnection conn = new OracleConnection(constring))
+            {
+                OracleCommand cmd = new OracleCommand("select * from land where ligging = europa", conn);
+                OracleDataReader rdr = cmd.ExecuteReader();
+                if (rdr.Read())
+                {
+                    Land l = new Land(rdr["ligging"].ToString());
+                    return l;
+                }
+                return null;
+            }
+
+        }
+
+        #endregion
 
 
 
 
-//ReisOpzoeken()
+        //ReisOpzoeken()
 //ReisToevoegen()
 //ReisVerwijderen()
 //Sorteren()

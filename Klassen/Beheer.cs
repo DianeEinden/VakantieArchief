@@ -5,14 +5,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Klassen.Properties;
-using DatabaseKoppeling;
 
 namespace Klassen
 {
     public class Beheer
     {
         // DATA
-        public List<Reis> reisLijst;
+        private List<Reis> reisLijst;
+        private List<Land> landenLijst;
         DataKoppeling k = new DataKoppeling();
 
         // CONSTRUCTOR
@@ -25,6 +25,11 @@ namespace Klassen
         public List<Reis> ReisLijst
         {
             get { return new List<Reis>(this.reisLijst); }
+        }
+
+        public List<Land> LandenLijst
+        {
+            get { return new List<Land>(this.landenLijst); }
         }
 
         // METHODEN
@@ -42,49 +47,59 @@ namespace Klassen
         }
         #endregion
 
-        public void ReisAanpassen()
+        public List<Land> EuropeseReizen
         {
-            // TODO
+            foreach(Land landje in this.k.EuropeseReizen)
+            {
+                  this.LandenLijst.Add(landje);
+            }
+
+            return this.schoonmaaklijstVandaag;
         }
 
-        public void ReisBekijken()
-        {
-            // TODO
-        }
+        //public void ReisAanpassen()
+        //{
+        //    // TODO
+        //}
 
-        public void ReisDelen()
-        {
-            // TODO
-        }
+        //public void ReisBekijken()
+        //{
+        //    // TODO
+        //}
 
-        public void ReisOpzoeken()
-        {
-            // TODO
-        }
+        //public void ReisDelen()
+        //{
+        //    // TODO
+        //}
 
-        public void ReisToevoegen()
-        {
-            // TODO
-        }
+        //public void ReisOpzoeken()
+        //{
+        //    // TODO
+        //}
 
-        public void ReisVerwijderen()
-        {
-            // TODO
-        }
+        //public void ReisToevoegen()
+        //{
+        //    // TODO
+        //}
 
-        public void Sorteren()
-        {
-            // TODO
-        }
+        //public void ReisVerwijderen()
+        //{
+        //    // TODO
+        //}
 
-        public void Uitloggen()
-        {
-            // TODO
-        }
+        //public void Sorteren()
+        //{
+        //    // TODO
+        //}
 
-        public void ToString()
-        {
-            // TODO
-        }
+        //public void Uitloggen()
+        //{
+        //    // TODO
+        //}
+
+        //public void ToString()
+        //{
+        //    // TODO
+        //}
     }
 }
