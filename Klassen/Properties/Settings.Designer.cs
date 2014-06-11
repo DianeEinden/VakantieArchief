@@ -25,8 +25,7 @@ namespace Klassen.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=MyOracleDB;User Id=SE22_VakantieArchief;Password=handyroosje;\r\nIntegr" +
-            "ated Security=no;")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=MyOracleDB;User Id=SE22_VakantieArchief;Password=handyroosje;")]
         public string ConnectieString {
             get {
                 return ((string)(this["ConnectieString"]));

@@ -47,15 +47,16 @@ namespace Klassen
         }
         #endregion
 
-        public List<Land> EuropeseReizen
-        {
-            foreach(Land landje in this.k.EuropeseReizen)
-            {
-                  this.LandenLijst.Add(landje);
-            }
 
-            return this.schoonmaaklijstVandaag;
-        }
+        //public List<Land> EuropeseReizen
+        //{
+        //    foreach(Land landje in this.k.EuropeseReizen())
+        //    {
+        //        this.sporen.Add(landje);
+        //    }
+
+        //    return this.landenLijst;
+        //}
 
         //public void ReisAanpassen()
         //{
