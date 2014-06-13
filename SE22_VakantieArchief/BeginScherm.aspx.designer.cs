@@ -137,5 +137,23 @@ namespace SE22_VakantieArchief {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ListBox LbAccomodatie;
+        
+        /// <summary>
+        /// BtPlaatsen control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtPlaatsen;
+        
+        /// <summary>
+        /// LbPlaatsen control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListBox LbPlaatsen;
     }
 }

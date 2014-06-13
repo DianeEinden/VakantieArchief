@@ -332,6 +332,47 @@ namespace DatabaseKoppeling
 
         }
         #endregion
+
+        #region PLAATSEN OPVRAGEN
+        public List<Plaats> PlaatsenOpvragen(string landcode)
+        {
+            try
+            {
+                using (OracleConnection conn = connection)
+                {
+                    OracleCommand cmd = new OracleCommand("SELECT * FROM PLAATS, LAND WHERE plaats.land_landcode = land.landcode AND land.landcode=:landcode", conn);
+                    cmd.Parameters.Add("landcode", landcode);
+                    connection.Open();
+                    OracleDataReader rdr = cmd.ExecuteReader();
+                    if (rdr.Read())
+                    {
+                        List<Plaats> plaatsenLijst = new List<Plaats>();
+
+                        double aantalInwoners = Convert.ToDouble(rdr["AANTALINWONERS"]);
+                        int areacode = Convert.ToInt32(rdr["AREACODE"]);
+                        string plaatsnaam = Convert.ToString(rdr["PLAATSNAAM"]);
+                        string stadOfDorp = Convert.ToString(rdr["STADOFDORP"]);
+
+                        plaatsenLijst.Add(new Plaats(aantalInwoners, areacode, plaatsnaam, stadOfDorp));
+                        return plaatsenLijst;
+                    }
+                    return null;
+
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return null;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+        }
+        #endregion
+
     }
 }
         

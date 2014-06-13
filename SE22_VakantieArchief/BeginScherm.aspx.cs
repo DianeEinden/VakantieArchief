@@ -79,29 +79,29 @@ namespace SE22_VakantieArchief
         }
         #endregion
 
-#region REIS OPVRAGEN
-        protected void BtReisInzien_Click(object sender, EventArgs e)
-        {
-            int selecteditem = Convert.ToInt32(this.LbBoeking.SelectedItem.Value);
-            LbBoeking.Items.Clear();
-
-            List<Reis> reizen = new List<Reis>(beheerder.reisOpvragen(selecteditem));
-            try
-            {
-                foreach (Reis reisjes in reizen)
+        #region REIS OPVRAGEN
+                protected void BtReisInzien_Click(object sender, EventArgs e)
                 {
+                    int selecteditem = Convert.ToInt32(this.LbBoeking.SelectedItem.Value);
+                    LbBoeking.Items.Clear();
 
-                    LbReis.Items.Add(reisjes.ToString());
+                    List<Reis> reizen = new List<Reis>(beheerder.reisOpvragen(selecteditem));
+                    try
+                    {
+                        foreach (Reis reisjes in reizen)
+                        {
+
+                            LbReis.Items.Add(reisjes.ToString());
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception(ex.Message);
+                    }
                 }
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
-        }
-#endregion
+        #endregion
 
-#region BOEKING OPVRAGEN
+        #region BOEKING OPVRAGEN
         protected void BtBoekingOpvragen_Click(object sender, EventArgs e)
         {
             string selecteditem = this.LbReizen.SelectedItem.Value;
@@ -145,5 +145,25 @@ namespace SE22_VakantieArchief
             }
         }
         #endregion
+
+        protected void BtPlaatsen_Click(object sender, EventArgs e)
+        {
+            string selecteditem = this.LbReizen.SelectedItem.Value;
+            LbReizen.Items.Clear();
+           
+            List<Plaats> plaats = new List<Plaats>(beheerder.plaatsenBekijken(selecteditem));
+            try
+            {
+                foreach (Plaats plaatsjes in plaats)
+                {
+                    LbPlaatsen.Items.Add(plaatsjes.ToString());
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
     }
 }

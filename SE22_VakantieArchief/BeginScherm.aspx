@@ -39,6 +39,11 @@
         <asp:Button ID="BtAccomodatieBekijken" runat="server" OnClick="BtAccomodatieBekijken_Click" Text="Accomodatie bekijken" />
         <br />
         <asp:ListBox ID="LbAccomodatie" runat="server" Width="1020px"></asp:ListBox>
+        <br />
+        <br />
+        <asp:Button ID="BtPlaatsen" runat="server" OnClick="BtPlaatsen_Click" Text="Plaatsen bekijken" />
+        <br />
+        <asp:ListBox ID="LbPlaatsen" runat="server" Width="1018px"></asp:ListBox>
     </form>
 </body>
 </html>

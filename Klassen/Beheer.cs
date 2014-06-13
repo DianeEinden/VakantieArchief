@@ -86,7 +86,6 @@ namespace Klassen
         #endregion
 
         #region REIS OPVRAGEN
-
         public List<Reis> reisOpvragen(int Boekingsnummer)
         {
             List<Reis> reis = (List<Reis>)k.ReisOpvragen(Boekingsnummer);
@@ -95,7 +94,6 @@ namespace Klassen
         #endregion
 
         #region BOEKING OPVRAGEN
-
         public List<Boeking> boekingOpvragen(string Landcode)
         {
             List<Boeking> boeking = (List<Boeking>)k.BoekingOpvragen(Landcode);
@@ -104,11 +102,18 @@ namespace Klassen
         #endregion
 
         #region ACCOMODATIE BEKIJKEN
-
         public List<Accomodatie> accomodatieBekijken(int Boekingsnummer)
         {
             List<Accomodatie> accomodatie = (List<Accomodatie>)k.AccomodatieBekijken(Boekingsnummer);
             return accomodatie;
+        }
+        #endregion
+
+        #region PLAATSEN INZIEN
+        public List<Plaats> plaatsenBekijken(string Landcode)
+        {
+            List<Plaats> plaats = (List<Plaats>)k.PlaatsenOpvragen(Landcode);
+            return plaats;
         }
         #endregion
 
