@@ -69,8 +69,8 @@ namespace Klassen
         //            this.aantalInwoners = Convert.ToInt32(rdr["aantalinwoners"]);
         //        }
         //    }
-        //    //BoekingLijst = Boeking.LeesBoekingenVanLand(landCode);
-        //   // TODO Zelfde als LeesAlleLanden in de datakoppeling
+        //    BoekingLijst = Boeking.LeesBoekingenVanLand(landCode);
+        //     TODO Zelfde als LeesAlleLanden in de datakoppeling
         //}
             
         // PROPERTIES
@@ -147,7 +147,7 @@ namespace Klassen
         // TOSTRING
         public override string ToString()
         {
-            return " Aantal inwoners: " + AantalInwoners + " Cultuur: " + Cultuur + " Hoofdstad: " + hoofdstad + " Landcode: " + Landcode + " Landnummer: " + Landnummer + " Ligging: " + Ligging + " Naam: " + Naam + " Oppervlakte: " + Oppervlakte + " Staadsvorm: " + Staadsvorm + " Tijdsverschil: " + Tijdsverschil + " Valuta: " + Valuta + " Voertaal: " + Voertaal;
+           return " Aantal inwoners: " + AantalInwoners + " Cultuur: " + Cultuur + " Hoofdstad: " + hoofdstad + " Landcode: " + Landcode + " Landnummer: " + Landnummer + " Ligging: " + Ligging + " Naam: " + Naam + " Oppervlakte: " + Oppervlakte + " Staadsvorm: " + Staadsvorm + " Tijdsverschil: " + Tijdsverschil + " Valuta: " + Valuta + " Voertaal: " + Voertaal;
         }
     }
 }

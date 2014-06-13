@@ -27,7 +27,7 @@ namespace DatabaseKoppeling
             connection = new OracleConnection("User Id=" + "SE22_VAKANTIEARCHIEF" + " ;Password=" + "handyroosje" + ";Data Source=" + " //localhost:1521/xe" + ";");
         }
 
-        #region LOGIN 
+        #region LOGIN
         public Gebruiker Login(string username, string wachtwoord)
         {
             try
@@ -36,7 +36,7 @@ namespace DatabaseKoppeling
                 using (OracleConnection conn = connection)
                 {
                     OracleCommand cmd = new OracleCommand("select * from gebruiker where gebruikersnaam=:naam and wachtwoord=:wachtwoord", conn);
-                    cmd.Parameters.Add("gebruikersnaam", username);
+                    cmd.Parameters.Add("naam", username);
                     cmd.Parameters.Add("wachtwoord", wachtwoord);
                     connection.Open();
                     OracleDataReader rdr = cmd.ExecuteReader();
@@ -66,17 +66,17 @@ namespace DatabaseKoppeling
             // using (OracleConnection conn = new OracleConnection(constring))
             using (OracleConnection conn = connection)
             {
-                OracleCommand cmd = new OracleCommand("INSERT INTO GEBRUIKER VALUES (':naam',':wachtwoord'); ", conn);
-                cmd.Parameters.Add("naam", naam);
-                cmd.Parameters.Add("wachtwoord", wachtwoord);
+                OracleCommand cmd = new OracleCommand("INSERT INTO GEBRUIKER VALUES (:naam, :wachtwoord); ", conn);
+                cmd.Parameters.Add("GEBRUIKERSNAAM", naam);
+                cmd.Parameters.Add("WACHTWOORD", wachtwoord);
                 connection.Open();
                 cmd.ExecuteNonQuery();
                 connection.Close();
             }
         }
-        #endregion 
+        #endregion
 
-        #region EUROPESE REIZEN
+        #region EUROPESE LANDEN
         public List<Land> EuropeseReizenLijst()
         {
             try
@@ -103,7 +103,7 @@ namespace DatabaseKoppeling
                         string voertaal = Convert.ToString(rdr["voertaal"]);
 
                         europeseLanden.Add(new Land(aantalInwoners, cultuur, hoofdstad, landcode, landnummer, ligging, naam, oppervlakte, staadsvorm, tijdsverschil, valuta, voertaal));
-                        return europeseLanden;                                                                                                                                                                                                              
+                        return europeseLanden;
                     }
                     return europeseLanden;
                 }
@@ -119,7 +119,224 @@ namespace DatabaseKoppeling
         }
         #endregion
 
+        #region AFRIKAANSE LANDEN
+        public List<Land> AfrikaanseReizenLijst()
+        {
+            try
+            {
+                using (OracleConnection conn = connection)
+                {
+                    OracleCommand cmd = new OracleCommand("select * from land where ligging = 'Afrika'", conn);
+                    connection.Open();
+                    OracleDataReader rdr = cmd.ExecuteReader();
+                    List<Land> afrikaanseReizenLijst = new List<Land>();
+                    if (rdr.Read())
+                    {
+                        double aantalInwoners = Convert.ToDouble(rdr["aantalInwoners"]);
+                        string cultuur = Convert.ToString(rdr["cultuur"]);
+                        string hoofdstad = Convert.ToString(rdr["hoofdstad"]);
+                        string landcode = Convert.ToString(rdr["landcode"]);
+                        int landnummer = Convert.ToInt32(rdr["landnummer"]);
+                        string ligging = Convert.ToString(rdr["ligging"]);
+                        string naam = Convert.ToString(rdr["naam"]);
+                        double oppervlakte = Convert.ToDouble(rdr["oppervlakte"]);
+                        Land.Staatsvorm staadsvorm = (Land.Staatsvorm)Enum.Parse(typeof(Land.Staatsvorm), Convert.ToString(rdr["staatsvorm"]));
+                        char tijdsverschil = Convert.ToChar(rdr["tijdsverschil"]);
+                        string valuta = Convert.ToString(rdr["valuta"]);
+                        string voertaal = Convert.ToString(rdr["voertaal"]);
+
+                        afrikaanseReizenLijst.Add(new Land(aantalInwoners, cultuur, hoofdstad, landcode, landnummer, ligging, naam, oppervlakte, staadsvorm, tijdsverschil, valuta, voertaal));
+                        return afrikaanseReizenLijst;
+                    }
+                    return afrikaanseReizenLijst;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+        #endregion
+
+        #region AZIE LANDEN
+        public List<Land> AzieReizenLijst()
+        {
+            try
+            {
+                using (OracleConnection conn = connection)
+                {
+                    OracleCommand cmd = new OracleCommand("select * from land where ligging = 'Azie'", conn);
+                    connection.Open();
+                    OracleDataReader rdr = cmd.ExecuteReader();
+                    List<Land> azieReizenLijst = new List<Land>();
+                    if (rdr.Read())
+                    {
+                        double aantalInwoners = Convert.ToDouble(rdr["aantalInwoners"]);
+                        string cultuur = Convert.ToString(rdr["cultuur"]);
+                        string hoofdstad = Convert.ToString(rdr["hoofdstad"]);
+                        string landcode = Convert.ToString(rdr["landcode"]);
+                        int landnummer = Convert.ToInt32(rdr["landnummer"]);
+                        string ligging = Convert.ToString(rdr["ligging"]);
+                        string naam = Convert.ToString(rdr["naam"]);
+                        double oppervlakte = Convert.ToDouble(rdr["oppervlakte"]);
+                        Land.Staatsvorm staadsvorm = (Land.Staatsvorm)Enum.Parse(typeof(Land.Staatsvorm), Convert.ToString(rdr["staatsvorm"]));
+                        char tijdsverschil = Convert.ToChar(rdr["tijdsverschil"]);
+                        string valuta = Convert.ToString(rdr["valuta"]);
+                        string voertaal = Convert.ToString(rdr["voertaal"]);
+
+                        azieReizenLijst.Add(new Land(aantalInwoners, cultuur, hoofdstad, landcode, landnummer, ligging, naam, oppervlakte, staadsvorm, tijdsverschil, valuta, voertaal));
+                        return azieReizenLijst;
+                    }
+                    return azieReizenLijst;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+        #endregion
+
+        #region BOEKING OPVRAGEN
+        public List<Boeking> BoekingOpvragen(string landcode)
+        {
+            try
+            {
+                using (OracleConnection conn = connection)
+                {
+                    OracleCommand cmd = new OracleCommand("SELECT * FROM BOEKING, LAND WHERE boeking.land_landcode = land.landcode AND land.landcode=:landcode", conn);
+                    cmd.Parameters.Add("landcode", landcode);
+                    connection.Open();
+                    OracleDataReader rdr = cmd.ExecuteReader();
+                    if (rdr.Read())
+                    {
+                        List<Boeking> boekingOpvragen = new List<Boeking>();
+
+                        string boekingsNummer = Convert.ToString(rdr["BOEKINGSNUMMER"]);
+                        DateTime datumRetour = Convert.ToDateTime(rdr["DATUMRETOUR"]);
+                        DateTime datumVertrek = Convert.ToDateTime(rdr["DATUMVERTREK"]);
+                        string organisatie = Convert.ToString(rdr["ORGANISATIE"]);
+                        string paspoortID = Convert.ToString(rdr["IDKAARTOFPASPOORT"]);
+                        Boeking.VakSoort soortVakantie = (Boeking.VakSoort)Enum.Parse(typeof(Boeking.VakSoort), Convert.ToString(rdr["SOORTVAKANTIE"]));
+                        double totaalPrijs = Convert.ToDouble(rdr["TOTAALPRIJS"]);
+                        char visum = Convert.ToChar(rdr["VISUM"]);
+                        string voertuig = Convert.ToString(rdr["VOERTUIG"]);
+
+                        boekingOpvragen.Add(new Boeking(boekingsNummer, datumRetour, datumVertrek, organisatie, paspoortID, soortVakantie, totaalPrijs, visum, voertuig));
+                        return boekingOpvragen;
+                    }
+                    return null;
+
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return null;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+        }
+        #endregion
+
+        #region REIS OPVRAGEN
+        public List<Reis> ReisOpvragen(int boekingsNummer)
+        {
+            try
+            {
+                using (OracleConnection conn = connection)
+                {
+                    OracleCommand cmd = new OracleCommand("SELECT * FROM REIS, BOEKING WHERE boeking.boekingsnummer = boeking.boekingsnummer AND boeking.boekingsnummer=:boekingsNummer", conn);
+                    cmd.Parameters.Add("boekingsNummer", boekingsNummer);
+                    connection.Open();
+                    OracleDataReader rdr = cmd.ExecuteReader();   
+                    if (rdr.Read())
+                    {
+                        List<Reis> reisOpvragen = new List<Reis>();
+                        string reistijd = Convert.ToString(rdr["REISTIJD"]);
+                        string vertrekpunt = Convert.ToString(rdr["VERTREKPUNT"]);
+                        string aankomstpunt = Convert.ToString(rdr["AANKOMSTPUNT"]);
+                        string vertrektijd = Convert.ToString(rdr["VERTREKTIJD"]);
+                        string reiscode = Convert.ToString(rdr["REISCODE"]);
+                        reisOpvragen.Add(new Reis(reistijd, vertrekpunt, aankomstpunt, vertrektijd, reiscode));
+                        return reisOpvragen;
+                    }
+                    return null;
+
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return null;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+        }
+        #endregion
+
+        #region ACCOMODATIE BEKIJKEN
+        public List<Accomodatie> AccomodatieBekijken(int boekingsNummer)
+        {
+            try
+            {
+                using (OracleConnection conn = connection)
+                {
+                    OracleCommand cmd = new OracleCommand("SELECT * FROM ACCOMODATIE, BOEKING WHERE boeking.boekingsnummer = accomodatie.boeking_boekingsnummer AND boeking.boekingsnummer=:boekingsNummer", conn);
+                    cmd.Parameters.Add("boekingsNummer", boekingsNummer);
+                    connection.Open();
+                    OracleDataReader rdr = cmd.ExecuteReader();
+                    if (rdr.Read())
+                    {
+                        List<Accomodatie> accomodatieBekijken = new List<Accomodatie>();
+                        string adres = Convert.ToString(rdr["ADRES"]);
+                        string categorie = Convert.ToString(rdr["CATEGORIE"]);
+                        string naam = Convert.ToString(rdr["NAAM"]);
+                        string postcode = Convert.ToString(rdr["POSTCODE"]);
+                        string plaats = Convert.ToString(rdr["PLAATS"]);
+                        Accomodatie.AcSoort soort = (Accomodatie.AcSoort)Enum.Parse(typeof(Accomodatie.AcSoort), Convert.ToString(rdr["SOORT"]));
+                        string telefoonnummer = Convert.ToString(rdr["TELEFOONNUMMER"]);
+                        //Accomodatie.AcType type = (Accomodatie.AcType)Enum.Parse(typeof(Accomodatie.AcType), Convert.ToString(rdr["SOORTVAKANTIE"]));
+                        Accomodatie.Verzorging verzorging = (Accomodatie.Verzorging)Enum.Parse(typeof(Accomodatie.Verzorging), Convert.ToString(rdr["VERZORGING"]));
+                        string website = Convert.ToString(rdr["WEBSITE"]);
+                        accomodatieBekijken.Add(new Accomodatie(adres, categorie, naam, postcode, plaats, soort, telefoonnummer, /*type,*/ verzorging, website));
+                        return accomodatieBekijken;
+                    }
+                    return null;
+
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return null;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+        }
+        #endregion
+    }
+}
         
+
+
 
 
         //ReisOpzoeken()
@@ -148,5 +365,5 @@ namespace DatabaseKoppeling
         //}
 
 
-    }
-}
+    
+

@@ -32,13 +32,13 @@ namespace Klassen
         private string paspoortID;
         private VakSoort soortVakantie;
         private double totaalPrijs;
-        private bool visum;
+        private char visum;
         private string voertuig;
         private List<Accomodatie> accomodatieLijst;
         private List<Reis> reisLijst;
 
         // CONSTRUCTOR
-        public Boeking(string boekingsNummer, DateTime datumRetour, DateTime datumVertrek, string organisatie, string paspoortID, VakSoort soortVakantie, double totaalPrijs, bool visum, string voertuig)
+        public Boeking(string boekingsNummer, DateTime datumRetour, DateTime datumVertrek, string organisatie, string paspoortID, VakSoort soortVakantie, double totaalPrijs, char visum, string voertuig)
         {
             this.boekingsNummer = boekingsNummer;
             this.datumRetour = datumRetour;
@@ -89,7 +89,7 @@ namespace Klassen
             get { return totaalPrijs; }
         }
 
-        public bool Visum
+        public char Visum
         {
             get { return visum; }
         }
@@ -121,7 +121,7 @@ namespace Klassen
         // TOSTRING
         public override string ToString()
         {
-            return " Boekingsnummer: " + BoekingsNummer + " Datum retour: " + DatumRetour + " Datum vertrek: " + DatumVertrek + " Organisatie: " + Organisatie + " Paspoort of ID: " + PaspoortID + " Soort vakantie: " + SoortVakantie + " Totaalprijs: " + TotaalPrijs + " Visum nodig: " + Visum + " Voertuig: " + Voertuig;
+            return " Boekingsnummer: " + boekingsNummer + " Datum retour: " + DatumRetour + " Datum vertrek: " + DatumVertrek + " Organisatie: " + Organisatie + " Paspoort of ID: " + PaspoortID + " Soort vakantie: " + SoortVakantie + " Totaalprijs: " + TotaalPrijs + " Visum nodig: " + Visum + " Voertuig: " + Voertuig;
         }
     }
 }

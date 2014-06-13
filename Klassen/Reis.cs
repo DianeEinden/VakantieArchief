@@ -9,50 +9,49 @@ namespace Klassen
     public class Reis
     {
         // DATA
-        private string aankomstpunt;
-        private string duur;
-        private string heenTerug;
+        private string reistijd;
         private string vertrekpunt;
-        private DateTime vertrektijd;
+        private string aankomstpunt;
+        private string vertrektijd;
+        private string reiscode;
         private List<Boeking> boekingsLijst;
 
         // CONSTRUCTOR
-        public Reis(string aankomstpunt, string duur, string heenTerug, string vertrekpunt, DateTime vertrektijd)
+        public Reis(string reistijd, string vertrekpunt, string aankomstpunt, string vertrektijd, string reiscode)
         {
-            this.aankomstpunt = aankomstpunt;
-            this.duur = duur;
-            this.heenTerug = heenTerug;
+            this.reistijd = reistijd;
             this.vertrekpunt = vertrekpunt;
+            this.aankomstpunt = aankomstpunt;
             this.vertrektijd = vertrektijd;
+            this.reiscode = reiscode;
             boekingsLijst = new List<Boeking>();
         }
 
         // PROPERTIES
-        public string Aankomstpunt
+        public string Reistijd
         {
-            get { return aankomstpunt; }
-        }
-
-        public string Duur
-        {
-            get { return duur; }
-        }
-
-        public string HeenTerug
-        {
-            get { return heenTerug; }
+            get { return reistijd; }
         }
 
         public string Vertrekpunt
         {
-            get { return Vertrekpunt; }
+            get { return vertrekpunt; }
         }
 
-        public DateTime Vertrektijd
+        public string Aankomst
+        {
+            get { return aankomstpunt; }
+        }
+
+        public string Vertrektijd
         {
             get { return vertrektijd; }
         }
 
+        public string Reiscode
+        {
+            get { return reiscode; }
+        }
         public List<Boeking> BoekingsLijst
         {
             get { return new List<Boeking>(boekingsLijst); }
@@ -61,7 +60,7 @@ namespace Klassen
         // TOSTRING
         public override string ToString()
         {
-            return " Aankomstpunt: " + Aankomstpunt + " Duur: " + Duur + " Heen of Terugreis: " + HeenTerug + " Vertrekpunt: " + Vertrekpunt + " Vertrektijd: " + Vertrektijd;
+            return " Reistijd: " + reiscode + " Vertrekpunt: " + vertrekpunt + " Aankomst: " + aankomstpunt + " Vertrektijd: " + vertrekpunt + " Reiscode: " + reiscode;
         }
     }
 

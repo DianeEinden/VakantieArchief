@@ -48,22 +48,24 @@ namespace Klassen
         private string categorie;
         private string naam;
         private string postcode;
+        private string plaats;
         private AcSoort soort;
         private string telefoonnummer;
-        private AcType type;
+        //private AcType type;
         private Verzorging verzorging;
         private string website;
 
         // CONSTRUCTOR
-        public Accomodatie(string adres, string categorie, string naam, string postcode, AcSoort soort, string telefoonnummer, AcType type, Verzorging verzorging, string website)
+        public Accomodatie(string adres, string categorie, string naam, string postcode, string plaats, AcSoort soort, string telefoonnummer, /*AcType type,*/ Verzorging verzorging, string website)
         {
             this.adres = adres;
             this.categorie = categorie;
             this.naam = naam;
             this.postcode = postcode;
+            this.plaats = plaats;
             this.soort = soort;
             this.telefoonnummer = telefoonnummer;
-            this.type = type;
+            //this.type = type;
             this.verzorging = verzorging;
             this.website = website;
         }
@@ -88,7 +90,11 @@ namespace Klassen
         {
             get { return postcode; }
         }
-
+        
+        public string Plaats
+        {
+            get { return plaats; }
+        }
         public AcSoort Soort
         {
             get { return soort; }
@@ -99,10 +105,10 @@ namespace Klassen
             get { return telefoonnummer; }
         }
 
-        public AcType Type
-        {
-            get { return type; }
-        }
+        //public AcType Type
+        //{
+        //    get { return type; }
+        //}
 
         public Verzorging Verzorgings
         {
@@ -117,7 +123,7 @@ namespace Klassen
         // TOSTRING
         public override string ToString()
         {
-            return " Adres: " + Adres + " Categorie: " + Categorie + " Naam: " + Naam + " Postcode: " + Postcode + " Soort: " + Soort + " Telefoonnummer: " + Telefoonnummer + " Type: " + Type + " Verzorging: " + Verzorgings + " Website: " + Website;
+            return " Adres: " + Adres + " Categorie: " + Categorie + " Naam: " + Naam + " Postcode: " + Postcode + " Soort: " + Soort + " Telefoonnummer: " + Telefoonnummer /*+ " Type: " + Type*/ + " Verzorging: " + Verzorgings + " Website: " + Website + "Plaats: " + plaats;
         }
     }
 }

@@ -12,6 +12,7 @@ namespace Klassen
     {
         // DATA
         private List<Reis> reisLijst;
+        private List<Boeking> boekingLijst;
         private List<Land> landenLijst;
         DataKoppeling k = new DataKoppeling();
 
@@ -19,12 +20,17 @@ namespace Klassen
         public Beheer()
         {
             reisLijst = new List<Reis>();
+            boekingLijst = new List<Boeking>();
         }
 
         // PROPERTIES
         public List<Reis> ReisLijst
         {
             get { return new List<Reis>(this.reisLijst); }
+        }
+       public List<Boeking> BoekingLijst
+        {
+            get { return new List<Boeking>(this.BoekingLijst); }
         }
 
         public List<Land> LandenLijst
@@ -43,7 +49,7 @@ namespace Klassen
             }
             catch
             {
-                throw new Exception("Gegevens al komen");
+                throw new Exception("Gegevens komen al voor");
             }
         }
 
@@ -55,56 +61,57 @@ namespace Klassen
         }
         #endregion
 
+        #region LANDEN
 
+        // Europesereizen
         public List<Land> EuropeseReizen()
         {
             List<Land> land = k.EuropeseReizenLijst();
             return land;
         }
 
-        //public void ReisAanpassen()
-        //{
-        //    // TODO
-        //}
+        // Afrikaansreizen
+        public List<Land> AfraanseReizen()
+        {
+            List<Land> land = k.AfrikaanseReizenLijst();
+            return land;
+        }
 
-        //public void ReisBekijken()
-        //{
-        //    // TODO
-        //}
+        // Afrikaansreizen
+        public List<Land> AzieReizen()
+        {
+            List<Land> land = k.AzieReizenLijst();
+            return land;
+        }
+        #endregion
 
-        //public void ReisDelen()
-        //{
-        //    // TODO
-        //}
+        #region REIS OPVRAGEN
 
-        //public void ReisOpzoeken()
-        //{
-        //    // TODO
-        //}
+        public List<Reis> reisOpvragen(int Boekingsnummer)
+        {
+            List<Reis> reis = (List<Reis>)k.ReisOpvragen(Boekingsnummer);
+            return reis;
+        }      
+        #endregion
 
-        //public void ReisToevoegen()
-        //{
-        //    // TODO
-        //}
+        #region BOEKING OPVRAGEN
 
-        //public void ReisVerwijderen()
-        //{
-        //    // TODO
-        //}
+        public List<Boeking> boekingOpvragen(string Landcode)
+        {
+            List<Boeking> boeking = (List<Boeking>)k.BoekingOpvragen(Landcode);
+            return boeking;
+        }
+        #endregion
 
-        //public void Sorteren()
-        //{
-        //    // TODO
-        //}
+        #region ACCOMODATIE BEKIJKEN
 
-        //public void Uitloggen()
-        //{
-        //    // TODO
-        //}
+        public List<Accomodatie> accomodatieBekijken(int Boekingsnummer)
+        {
+            List<Accomodatie> accomodatie = (List<Accomodatie>)k.AccomodatieBekijken(Boekingsnummer);
+            return accomodatie;
+        }
+        #endregion
 
-        //public void ToString()
-        //{
-        //    // TODO
-        //}
+      
     }
 }
