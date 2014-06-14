@@ -21,10 +21,11 @@ namespace SE22_VakantieArchief
             try
             {
                 beheerder.Aanmelden(TbGebruikersnaam.Text, TbWachtwoord.Text);
+                Response.Redirect("~/Default.aspx");
             }
             catch(Exception ex)
             {
-                throw new Exception(ex.Message);
+                Console.WriteLine(ex.Message);
             }
         }
     }

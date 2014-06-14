@@ -45,6 +45,7 @@ namespace Klassen
             {
                 throw new Exception("Gegevens komen al voor");
             }
+                
         }
 
         #region INLOGGEN

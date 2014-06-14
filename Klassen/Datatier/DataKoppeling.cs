@@ -66,7 +66,25 @@ namespace DatabaseKoppeling
             // using (OracleConnection conn = new OracleConnection(constring))
             using (OracleConnection conn = connection)
             {
-                OracleCommand cmd = new OracleCommand("INSERT INTO GEBRUIKER VALUES (:naam, :wachtwoord); ", conn);
+                //OracleCommand controle = new OracleCommand("select * from gebruiker where gebruikersnaam=:naam", conn);
+                //controle.Parameters.Add("naam", naam);
+
+                //OracleCommand cmd = new OracleCommand("INSERT INTO GEBRUIKER VALUES (:naam, :wachtwoord)", conn);
+                //cmd.Parameters.Add("GEBRUIKERSNAAM", naam);
+                //cmd.Parameters.Add("WACHTWOORD", wachtwoord);
+
+                //connection.Open();
+                //OracleDataReader rdr = controle.ExecuteReader();
+                //if (rdr.Read())
+                //{
+                //    cmd.ExecuteNonQuery();
+                //    connection.Close();
+                //}
+                //else
+                //{
+                //    Console.WriteLine("Gebruikersnaam bestaat al");
+                //}               
+                OracleCommand cmd = new OracleCommand("INSERT INTO GEBRUIKER VALUES (:naam, :wachtwoord)", conn);
                 cmd.Parameters.Add("GEBRUIKERSNAAM", naam);
                 cmd.Parameters.Add("WACHTWOORD", wachtwoord);
                 connection.Open();
