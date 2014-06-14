@@ -187,5 +187,36 @@ namespace SE22_VakantieArchief
             }
         }
         #endregion
+
+        // NOG TESTEN
+        #region BEZIENSWAARDIGHEDEN
+        protected void BtBezienswaardigheid_Click(object sender, EventArgs e)
+        {
+            int selecteditem = Convert.ToInt32(this.LbPlaatsen.SelectedItem.Value);
+            LbPlaatsen.Items.Clear();
+
+            List<KunstmatigeBZW> Kbzw = new List<KunstmatigeBZW>(beheerder.KMbezienswaardigheden(selecteditem));
+            List<NatuurlijkeBZW> Nbzw = new List<NatuurlijkeBZW>(beheerder.NMbezienswaardigheden(selecteditem));
+
+            try
+            {
+                foreach (KunstmatigeBZW kunstje in Kbzw)
+                {
+                    LbKbzw.Items.Add(kunstje.ToString());
+                }
+
+                foreach (NatuurlijkeBZW natuurtje in Nbzw)
+                {
+                    LbNbzw.Items.Add(natuurtje.ToString());
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+
+        }
+        #endregion
     }
 }

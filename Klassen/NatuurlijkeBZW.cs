@@ -13,17 +13,15 @@ namespace Klassen
         private string omschrijving;
         private string ontstaan;
         private double oppervlakte;
-        private string type;
 
         // CONSTRUCTOR
-        public NatuurlijkeBZW (string geschiedenis, string omschrijving, string ontstaan, double oppervlakte, string type, string adres, double entreeprijs, string naam, string plaats, string postcode) 
+        public NatuurlijkeBZW (string geschiedenis, string omschrijving, string ontstaan, double oppervlakte, string adres, double entreeprijs, string naam, string plaats, string postcode) 
             :base (adres, entreeprijs, naam, plaats, postcode)
         {
             this.geschiedenis = geschiedenis;
             this.omschrijving = omschrijving;
             this.ontstaan = ontstaan;
             this.oppervlakte = oppervlakte;
-            this.type = type;
         }
 
         // PROPERTIES
@@ -47,15 +45,11 @@ namespace Klassen
             get { return oppervlakte; }
         }
 
-        public string Type
-        {
-            get { return type; }
-        }
 
         // TOSTRING
         public override string ToString()
         {
-            return base.ToString() + " Geschiedenis: " + Geschiedenis + " Omschrijving: " + Omschrijving + " Ontstaan: " + Ontstaan + " Oppervlakte: " + Oppervlakte + " Type: " + Type;
+            return base.ToString() + " Geschiedenis: " + Geschiedenis + " Omschrijving: " + Omschrijving + " Ontstaan: " + Ontstaan + " Oppervlakte: " + Oppervlakte;
         }
     }
 }

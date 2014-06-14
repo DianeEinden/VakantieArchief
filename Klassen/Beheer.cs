@@ -119,6 +119,24 @@ namespace Klassen
         }
         #endregion
 
+        // NOG CONTROLEREN
+        #region KUNSTMATIGE-BEZIENSWAARDIGHEID
+        public List<KunstmatigeBZW> KMbezienswaardigheden(int areacode)
+        {
+            List<KunstmatigeBZW> KMbezienswaardigheden = (List<KunstmatigeBZW>)k.kunstmatigeBzwLijst(areacode);
+            return KMbezienswaardigheden;
+        }
+        #endregion
+
+        // NOG CONTROLEREN
+        #region NATUURLIJKE-BEZIENSWAARDIGHEID
+        public List<NatuurlijkeBZW> NMbezienswaardigheden(int areacode)
+        {
+            List<NatuurlijkeBZW> NMbezienswaardigheden = (List<NatuurlijkeBZW>)k.natuurlijkeBzwLijst(areacode);
+            return NMbezienswaardigheden;
+        }
+        #endregion
+
       
     }
 }

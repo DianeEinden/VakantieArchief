@@ -419,6 +419,104 @@ namespace DatabaseKoppeling
         }
         #endregion
 
+        // NOG CONTROLEREN
+        #region KUNSTMATIGE-BEZIENSWAARDIGHEID
+        public List<KunstmatigeBZW> kunstmatigeBzwLijst(int areacode)
+        {
+            try
+            {
+                using (OracleConnection conn = connection)
+                {
+                    OracleCommand cmd = new OracleCommand("SELECT * FROM kunstmatigebzw, bezienswaardigheid, PLAATS WHERE bezienswaardigheid.bzwcode = kunstmatigebzw.bezienswaardigheid_bzwcode AND plaats.areacode = bezienswaardigheid.Plaats_areacode AND plaats.areacode=:areacode", conn);
+                    cmd.Parameters.Add("areacode", areacode);
+                    connection.Open();
+                    OracleDataReader rdr = cmd.ExecuteReader();
+                    if (rdr.Read())
+                    {
+                        List<KunstmatigeBZW> KMbezienswaardigheden = new List<KunstmatigeBZW>();
+                        char afspraakNodig = Convert.ToChar(rdr["AFSPRAAKNODIG"]);
+                        int bouwjaar = Convert.ToInt32(rdr["BOUWJAAR"]);
+                        string functie = Convert.ToString(rdr["FUNCTIE"]);
+                        string omschrijving = Convert.ToString(rdr["OMSCHRIJVING"]);
+                        string oprichter = Convert.ToString(rdr["OPRICHTER"]);
+                        char rondleiding = Convert.ToChar(rdr["RONDLEIDINGMOGELIJK"]);
+                        string telefoonnummer = Convert.ToString(rdr["TELEFOONNUMMER"]);
+                        string type = Convert.ToString(rdr["THEMA"]);
+                        string adres = Convert.ToString(rdr["ADRES"]);
+                        string naam = Convert.ToString(rdr["NAAM"]);
+                        double entreeprijs = Convert.ToDouble(rdr["ENTREEPRIJS"]);
+                        string plaats = Convert.ToString(rdr["PLAATS"]);
+                        string postcode = Convert.ToString(rdr["POSTCODE"]);
+
+                        KMbezienswaardigheden.Add(new KunstmatigeBZW(afspraakNodig, bouwjaar, functie, omschrijving, oprichter, rondleiding, telefoonnummer, type, adres, naam, entreeprijs, plaats, postcode));
+
+                        return KMbezienswaardigheden;
+                    }
+                    return null;
+
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return null;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+        }
+        #endregion
+
+        // NOG CONTROLEREN
+        #region NATUURLIJKE-BEZIENSWAARDIGHEID
+        public List<NatuurlijkeBZW> natuurlijkeBzwLijst(int areacode)
+        {
+            try
+            {
+                using (OracleConnection conn = connection)
+                {
+                    OracleCommand cmd = new OracleCommand("SELECT * FROM natuurlijkebzw, bezienswaardigheid, PLAATS WHERE bezienswaardigheid.bzwcode = natuurlijkebzw.bezienswaardigheid_bzwcode AND plaats.areacode = bezienswaardigheid.Plaats_areacode AND plaats.areacode=:areacode", conn);
+                    cmd.Parameters.Add("areacode", areacode);
+                    connection.Open();
+                    OracleDataReader rdr = cmd.ExecuteReader();
+                    if (rdr.Read())
+                    {
+                        List<NatuurlijkeBZW> NMbezienswaardigheden = new List<NatuurlijkeBZW>();
+                        string geschiedenis = Convert.ToString(rdr["GESCHIEDENIS"]);
+                        string omschrijving = Convert.ToString(rdr["OMSCHRIJVING"]);
+                        string ontstaan = Convert.ToString(rdr["ONTSTAAN"]);
+                        double oppervlakte = Convert.ToDouble(rdr["OPPERVLAKTE"]);
+                        string adres = Convert.ToString(rdr["ADRES"]);
+                        double entreeprijs = Convert.ToDouble(rdr["ENTREEPRIJS"]);
+                        string naam = Convert.ToString(rdr["NAAM"]);
+                        string plaats = Convert.ToString(rdr["PLAATS"]);
+                        string postcode = Convert.ToString(rdr["POSTCODE"]);
+
+                        NMbezienswaardigheden.Add(new NatuurlijkeBZW(geschiedenis, omschrijving, ontstaan, oppervlakte, adres, entreeprijs, naam, plaats, postcode));
+
+                        return NMbezienswaardigheden;
+                    }
+                    return null;
+
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return null;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+        }
+        #endregion
+
+
+
     }
 }
         

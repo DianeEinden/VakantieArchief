@@ -49,6 +49,15 @@
         <asp:Button ID="BtActiviteit" runat="server" OnClick="BtActiviteit_Click" Text="Activiteiten overzicht" />
         <br />
         <asp:ListBox ID="LbActiviteit" runat="server" Width="993px"></asp:ListBox>
+        <p>
+            <asp:Button ID="BtBezienswaardigheid" runat="server" OnClick="BtBezienswaardigheid_Click" Text="Bezienswaardigheden" />
+        </p>
+        <p>
+            <asp:ListBox ID="LbKbzw" runat="server" Width="1003px"></asp:ListBox>
+        </p>
+        <p>
+            <asp:ListBox ID="LbNbzw" runat="server" Width="1004px"></asp:ListBox>
+        </p>
     </form>
 </body>
 </html>

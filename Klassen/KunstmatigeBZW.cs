@@ -9,17 +9,17 @@ namespace Klassen
     public class KunstmatigeBZW : Bezienswaardigheid
     {
         // DATA
-        private bool afspraakNodig;
+        private char afspraakNodig;
         private int bouwjaar;
         private string functie;
         private string omschrijving;
         private string oprichter;
-        private bool rondleiding;
+        private char rondleiding;
         private string telefoonnummer;
         private string type;
 
         // CONSTRUCTOR
-        public KunstmatigeBZW(bool afspraakNodig, int bouwjaar, string functie, string omschrijving, string oprichter, bool rondleiding, string telefoonnummer, string type, string adres, double entreeprijs, string naam, string plaats, string postcode) 
+        public KunstmatigeBZW(char afspraakNodig, int bouwjaar, string functie, string omschrijving, string oprichter, char rondleiding, string telefoonnummer, string type, string adres,string naam, double entreeprijs, string plaats, string postcode)
             :base (adres, entreeprijs, naam, plaats, postcode)
         {
             this.afspraakNodig = afspraakNodig;
@@ -33,7 +33,7 @@ namespace Klassen
         }
 
         // PROPETIES
-        public bool AfspraakNodig
+        public char AfspraakNodig
         {
             get { return afspraakNodig; }
         }
@@ -58,7 +58,7 @@ namespace Klassen
             get { return oprichter; }
         }
 
-        public bool Rondleiding
+        public char Rondleiding
         {
             get { return rondleiding; }
         }
