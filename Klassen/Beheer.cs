@@ -13,7 +13,6 @@ namespace Klassen
         // DATA
         private List<Reis> reisLijst;
         private List<Boeking> boekingLijst;
-        private List<Land> landenLijst;
         DataKoppeling k = new DataKoppeling();
 
         // CONSTRUCTOR
@@ -31,11 +30,6 @@ namespace Klassen
        public List<Boeking> BoekingLijst
         {
             get { return new List<Boeking>(this.BoekingLijst); }
-        }
-
-        public List<Land> LandenLijst
-        {
-            get { return new List<Land>(this.landenLijst); }
         }
 
 
@@ -114,6 +108,14 @@ namespace Klassen
         {
             List<Plaats> plaats = (List<Plaats>)k.PlaatsenOpvragen(Landcode);
             return plaats;
+        }
+        #endregion
+
+        #region ACTIVITEITEN
+        public List<Activiteit> activiteitenOverzicht(int areacode)
+        {
+            List<Activiteit> activiteit = (List<Activiteit>)k.activiteitenLijst(areacode);
+            return activiteit;
         }
         #endregion
 

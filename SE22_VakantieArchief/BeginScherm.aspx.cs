@@ -105,8 +105,7 @@ namespace SE22_VakantieArchief
         protected void BtBoekingOpvragen_Click(object sender, EventArgs e)
         {
             string selecteditem = this.LbReizen.SelectedItem.Value;
-            LbReizen.Items.Clear();
-           
+            LbReizen.Items.Clear();          
 
             List<Boeking> boeking = new List<Boeking>(beheerder.boekingOpvragen(selecteditem));
             try
@@ -146,17 +145,19 @@ namespace SE22_VakantieArchief
         }
         #endregion
 
+        #region PLAATSEN
         protected void BtPlaatsen_Click(object sender, EventArgs e)
         {
             string selecteditem = this.LbReizen.SelectedItem.Value;
-            LbReizen.Items.Clear();
+            LbPlaatsen.Items.Clear();
            
             List<Plaats> plaats = new List<Plaats>(beheerder.plaatsenBekijken(selecteditem));
             try
             {
                 foreach (Plaats plaatsjes in plaats)
                 {
-                    LbPlaatsen.Items.Add(plaatsjes.ToString());
+                    ListItem item = new ListItem(plaatsjes.ToString(), plaatsjes.Areacode.ToString());
+                    LbPlaatsen.Items.Add(item);
                 }
             }
             catch (Exception ex)
@@ -164,6 +165,27 @@ namespace SE22_VakantieArchief
                 throw new Exception(ex.Message);
             }
         }
+        #endregion
 
+        #region ACTIVITEIT
+        protected void BtActiviteit_Click(object sender, EventArgs e)
+        {
+            int selecteditem = Convert.ToInt32(this.LbPlaatsen.SelectedItem.Value);
+            LbPlaatsen.Items.Clear();
+
+            List<Activiteit> activiteit = new List<Activiteit>(beheerder.activiteitenOverzicht(selecteditem));
+            try
+            {
+                foreach (Activiteit activiteitje in activiteit)
+                {
+                    LbActiviteit.Items.Add(activiteitje.ToString());
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+        #endregion
     }
 }

@@ -10,7 +10,7 @@ namespace Klassen
     {
         // DATA
         private string adres;
-        private bool arragement;
+        private char arragement;
         private string naam;
         private string omschrijving;
         private string organisatie;
@@ -21,7 +21,7 @@ namespace Klassen
         private string type;
 
         // CONSTRUCTOR
-        public Activiteit(string adres, bool arragement, string naam, string omschrijving, string organisatie, string plaats, string postcode, double prijs, string telefoonnummer, string type)
+        public Activiteit(string adres, char arragement, string naam, string omschrijving, string organisatie, string plaats, string postcode, double prijs, string telefoonnummer, string type)
         {
             this.adres = adres;
             this.arragement = arragement;
@@ -41,7 +41,7 @@ namespace Klassen
             get { return adres; }
         }
 
-        public bool Arragement
+        public char Arragement
         {
             get { return arragement; }
         }

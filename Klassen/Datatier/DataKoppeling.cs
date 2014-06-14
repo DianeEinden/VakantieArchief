@@ -373,6 +373,52 @@ namespace DatabaseKoppeling
         }
         #endregion
 
+        #region ACTIVITEITEN
+        public List<Activiteit> activiteitenLijst(int areacode)
+        {
+            try
+            {
+                using (OracleConnection conn = connection)
+                {
+                    OracleCommand cmd = new OracleCommand("SELECT * FROM ACTIVITEIT, PLAATS WHERE plaats.areacode = activiteit.Plaats_areacode AND plaats.areacode=:areacode", conn);
+                    cmd.Parameters.Add("areacode", areacode);
+                    connection.Open();
+                    OracleDataReader rdr = cmd.ExecuteReader();
+                    if (rdr.Read())
+                    {
+                        List<Activiteit> activiteitenLijst = new List<Activiteit>();
+
+                        string adres = Convert.ToString(rdr["ADRES"]);
+                        char arragement = Convert.ToChar(rdr["ARRAGEMENTMOGELIJK"]);
+                        string naam = Convert.ToString(rdr["NAAM"]);
+                        string omschrijving = Convert.ToString(rdr["OMSCHRIJVING"]);
+                        string organisatie = Convert.ToString(rdr["ORGANISATIE"]);
+                        string plaats = Convert.ToString(rdr["PLAATS"]);
+                        string postcode = Convert.ToString(rdr["POSTCODE"]);
+                        double prijs = Convert.ToDouble(rdr["PRIJS"]);
+                        string telefoonnummer = Convert.ToString(rdr["TELEFOONNUMMER"]);
+                        string type = Convert.ToString(rdr["SOORT"]);
+
+                        activiteitenLijst.Add(new Activiteit(adres, arragement, naam, omschrijving, organisatie, plaats, postcode, prijs, telefoonnummer, type));
+                        return activiteitenLijst;
+                    }
+                    return null;
+
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return null;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+        }
+        #endregion
+
     }
 }
         
