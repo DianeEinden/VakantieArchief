@@ -168,6 +168,20 @@ namespace Klassen
             }
         }
         #endregion
+
+        #region REIS TOEVOEGEN
+        public void reisToevoegen(string reistijd, string vertrekpunt, string aankomstpunt, string vertrektijd, string reiscode)
+        {
+            try
+            {
+                k.reisToevoegen(reistijd, vertrekpunt, aankomstpunt, vertrektijd, reiscode);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+        #endregion
       
     }
 }

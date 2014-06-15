@@ -358,6 +358,11 @@ namespace SE22_VakantieArchief
         }
         #endregion
 
+        protected void BtReisToevoegen_Click(object sender, EventArgs e)
+        {
+            beheerder.reisToevoegen(TbReistijd.Text, TbVertrekpunt.Text, TbAankomstpunt.Text, TbVertrek.Text, TbReiscode.Text);
+        }
+
 
     }
 }

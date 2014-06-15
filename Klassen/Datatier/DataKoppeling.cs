@@ -582,6 +582,25 @@ namespace DatabaseKoppeling
             }
         }
         #endregion
+
+        #region REIS TOEVOEGEN
+
+        public void reisToevoegen(string reistijd, string vertrekpunt, string aankomstpunt, string vertrektijd, string reiscode)
+        {
+            using (OracleConnection conn = connection)
+            {
+                OracleCommand cmd = new OracleCommand("INSERT INTO REIS VALUES (:reistijd, :vertrekpunt, :aankomstpunt, :vertrektijd, :reiscode, null, null)", conn);
+                cmd.Parameters.Add("REISTIJD", reistijd);
+                cmd.Parameters.Add("VERTREKPUNT", vertrekpunt);
+                cmd.Parameters.Add("AANKOMSTPUNT", aankomstpunt);
+                cmd.Parameters.Add("VERTREKTIJD", vertrektijd);
+                cmd.Parameters.Add("REISCODE", reiscode);
+                connection.Open();
+                cmd.ExecuteNonQuery();
+                connection.Close();
+            }
+        }
+        #endregion
     }
 }
         

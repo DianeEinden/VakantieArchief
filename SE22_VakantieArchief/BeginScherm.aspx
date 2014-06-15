@@ -125,7 +125,22 @@
         <br />
         <asp:ListBox ID="LbReis" runat="server" Width="1457px"></asp:ListBox>
         <p>
-            &nbsp;</p>
+            Reistijd:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:TextBox ID="TbReistijd" runat="server"></asp:TextBox>
+        <br />
+            Vertrekpunt:&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="TbVertrekpunt" runat="server"></asp:TextBox>
+&nbsp;<br />
+            Aankomstpunt:&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="TbAankomstpunt" runat="server"></asp:TextBox>
+&nbsp;<br />
+            Vertrek:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:TextBox ID="TbVertrek" runat="server"></asp:TextBox>
+        <br />
+            Reiscode:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:TextBox ID="TbReiscode" runat="server"></asp:TextBox>
+        </p>
+        <p>
+            <asp:Button ID="BtReisToevoegen" runat="server" Text="Voeg toe" Width="302px" OnClick="BtReisToevoegen_Click" />
+        </p>
         <asp:Button ID="BtAccomodatieBekijken" runat="server" OnClick="BtAccomodatieBekijken_Click" Text="Accomodatie bekijken" />
         <br />
         <asp:ListBox ID="LbAccomodatie" runat="server" Width="1020px"></asp:ListBox>

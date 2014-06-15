@@ -364,6 +364,60 @@ namespace SE22_VakantieArchief {
         protected global::System.Web.UI.WebControls.ListBox LbReis;
         
         /// <summary>
+        /// TbReistijd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TbReistijd;
+        
+        /// <summary>
+        /// TbVertrekpunt control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TbVertrekpunt;
+        
+        /// <summary>
+        /// TbAankomstpunt control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TbAankomstpunt;
+        
+        /// <summary>
+        /// TbVertrek control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TbVertrek;
+        
+        /// <summary>
+        /// TbReiscode control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TbReiscode;
+        
+        /// <summary>
+        /// BtReisToevoegen control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtReisToevoegen;
+        
+        /// <summary>
         /// BtAccomodatieBekijken control.
         /// </summary>
         /// <remarks>
