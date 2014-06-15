@@ -147,7 +147,8 @@ namespace Klassen
         // TOSTRING
         public override string ToString()
         {
-           return " Aantal inwoners: " + AantalInwoners + " Cultuur: " + Cultuur + " Hoofdstad: " + hoofdstad + " Landcode: " + Landcode + " Landnummer: " + Landnummer + " Ligging: " + Ligging + " Naam: " + Naam + " Oppervlakte: " + Oppervlakte + " Staadsvorm: " + Staadsvorm + " Tijdsverschil: " + Tijdsverschil + " Valuta: " + Valuta + " Voertaal: " + Voertaal;
+           //return " Aantal inwoners: " + AantalInwoners + " Cultuur: " + Cultuur + " Hoofdstad: " + hoofdstad + " Landcode: " + Landcode + " Landnummer: " + Landnummer + " Ligging: " + Ligging + " Naam: " + Naam + " Oppervlakte: " + Oppervlakte + " Staadsvorm: " + Staadsvorm + " Tijdsverschil: " + Tijdsverschil + " Valuta: " + Valuta + " Voertaal: " + Voertaal;
+            return landnummer + Landcode + naam + hoofdstad + ligging + voertaal + cultuur + cultuur + valuta + staatsvorm + tijdsverschil + aantalInwoners + oppervlakte;
         }
     }
 }

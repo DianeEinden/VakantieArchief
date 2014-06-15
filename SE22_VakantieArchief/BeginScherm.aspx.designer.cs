@@ -22,6 +22,15 @@ namespace SE22_VakantieArchief {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
+        /// BtUitloggen control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtUitloggen;
+        
+        /// <summary>
         /// BtEuropa control.
         /// </summary>
         /// <remarks>
@@ -74,6 +83,24 @@ namespace SE22_VakantieArchief {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button BtOceanie;
+        
+        /// <summary>
+        /// UpdateGvLand control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdateGvLand;
+        
+        /// <summary>
+        /// GvLand control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView GvLand;
         
         /// <summary>
         /// LbReizen control.

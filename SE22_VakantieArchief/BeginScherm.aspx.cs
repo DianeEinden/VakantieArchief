@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Klassen;
+using System.Net;
+using System.Net.Mail;
 
 namespace SE22_VakantieArchief
 {
@@ -27,21 +29,25 @@ namespace SE22_VakantieArchief
         #region EUROPA
         protected void BtEuropa_Click(object sender, EventArgs e)
         {
-            LbReizen.Items.Clear();
+            List<Land> Landen = new List<Land>(this.beheerder.EuropeseReizen()); 
+            GvLand.DataSource = Landen;
+            GvLand.DataBind();
 
-            List<Land> landen = new List<Land>(beheerder.EuropeseReizen());
-            try
-            {
-                foreach (Land landjes in landen)
-                {
-                    ListItem item = new ListItem(landjes.ToString(), landjes.Landcode);
-                    LbReizen.Items.Add(item);
-                }
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
+            //LbReizen.Items.Clear();
+            //List<Land> landen = new List<Land>(beheerder.EuropeseReizen());
+            //try
+            //{
+            //    foreach (Land landjes in landen)
+            //    {
+            //        ListItem item = new ListItem(landjes.ToString(), landjes.Landcode);
+            //        LbReizen.Items.Add(item);
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    throw new Exception(ex.Message);
+            //}
+
         }
         #endregion
 
@@ -511,6 +517,14 @@ namespace SE22_VakantieArchief
                 Console.WriteLine(ex.Message);
             }
         }
+        #endregion
+
+        #region UITLOGGEN
+        protected void BtUitloggen_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Default.aspx");
+        }
+
         #endregion
 
 

@@ -10,6 +10,11 @@
     <form id="form1" runat="server">
     <div>
     
+        <asp:Button ID="BtUitloggen" runat="server" OnClick="BtUitloggen_Click" Text="Uitloggen" Width="209px" />
+        <br />
+        <br />
+        <br />
+    
         <asp:Button ID="BtEuropa" runat="server" OnClick="BtEuropa_Click" Text="Europa" Width="110px" />
 &nbsp;&nbsp;&nbsp;
         <asp:Button ID="BtAzie" runat="server" Text="Azië" Width="110px" OnClick="BtAzie_Click" />
@@ -21,6 +26,24 @@
         <asp:Button ID="BtNAmerika" runat="server" Text="Noord Amerika" Width="111px" />
 &nbsp;&nbsp;&nbsp;
         <asp:Button ID="BtOceanie" runat="server" Text="Oceanië" Width="110px" />
+        <br />
+        <br />
+
+        <asp:GridView ID="GvLand" runat="server" AutoGenerateColumns="False" Height="58px" Width="832px">
+            <Columns>
+                <asp:BoundField AccessibleHeaderText="LAND" HeaderText="Landnummer" />
+                <asp:BoundField AccessibleHeaderText="LAND" HeaderText="Landcode" />
+                <asp:BoundField AccessibleHeaderText="LAND" HeaderText="Landnaam" />
+                <asp:BoundField AccessibleHeaderText="LAND" HeaderText="Hoofdstad" />
+                <asp:BoundField AccessibleHeaderText="LAND" HeaderText="Voertaal" />
+                <asp:BoundField AccessibleHeaderText="LAND" HeaderText="Cultuur" />
+                <asp:BoundField AccessibleHeaderText="LAND" HeaderText="Valuta" />
+                <asp:BoundField AccessibleHeaderText="LAND" HeaderText="Staatsvorm" />
+                <asp:BoundField AccessibleHeaderText="LAND" HeaderText="Tijdsverschil" />
+                <asp:BoundField AccessibleHeaderText="LAND" HeaderText="Aantal inwoners" />
+                <asp:BoundField AccessibleHeaderText="LAND" HeaderText="Oppervlakte" />
+            </Columns>
+        </asp:GridView>
         <br />
         <br />
         <asp:ListBox ID="LbReizen" runat="server" Width="1463px"></asp:ListBox>
@@ -279,6 +302,16 @@
         <p>
             <asp:ListBox ID="LbNbzw" runat="server" Width="1004px"></asp:ListBox>
         </p>
+        <p>
+            &nbsp;</p>
+        <p>
+            &nbsp;</p>
+        <p>
+            &nbsp;</p>
+        <p>
+            &nbsp;</p>
+        <p>
+            &nbsp;</p>
     </form>
 </body>
 </html>
