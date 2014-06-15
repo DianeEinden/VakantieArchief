@@ -204,16 +204,45 @@
         <br />
         <br />
         <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
         <asp:Button ID="BtActiviteit" runat="server" OnClick="BtActiviteit_Click" Text="Activiteiten overzicht" />
         <br />
         <asp:ListBox ID="LbActiviteit" runat="server" Width="993px"></asp:ListBox>
         <br />
+        <br />
+        Adres:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:TextBox ID="TbAdresActi" runat="server"></asp:TextBox>
+        <br />
+        Arragement mogelijk:&nbsp;&nbsp;&nbsp;
+        <asp:RadioButton ID="RbJa" runat="server" Text="Ja" />
+&nbsp;&nbsp;&nbsp;
+        <asp:RadioButton ID="RbNee" runat="server" Text="Nee" />
+        <br />
+        Naam:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:TextBox ID="TbNaamActie" runat="server"></asp:TextBox>
+        <br />
+        Omschrijving:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:TextBox ID="TbOmschrijvingActi" runat="server"></asp:TextBox>
+        <br />
+        Organisatie:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:TextBox ID="TbOrganisatieActie" runat="server"></asp:TextBox>
+        <br />
+        Plaats:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:TextBox ID="TbPlaatsActie" runat="server"></asp:TextBox>
+        <br />
+        Postcode:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:TextBox ID="TbPostcodeActie" runat="server"></asp:TextBox>
+        <br />
+        Prijs:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:TextBox ID="TbPrijsActie" runat="server"></asp:TextBox>
+        <br />
+        Telefoonnummer:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:TextBox ID="TbTelActie" runat="server"></asp:TextBox>
+        <br />
+        Type:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:TextBox ID="TbTypeActie" runat="server"></asp:TextBox>
+        <br />
+        <br />
+        <asp:Button ID="BtVoegToeActie" runat="server" OnClick="BtVoegToeActie_Click" Text="Voeg toe" Width="355px" />
         <br />
         <br />
         <br />

@@ -485,6 +485,34 @@ namespace SE22_VakantieArchief
         }
         #endregion
 
+        #region ACTIVITEIT TOEVOEGEN
+        protected void BtVoegToeActie_Click(object sender, EventArgs e)
+        {
+            string ArMog;
+            if (this.RbJa.Checked)
+            {
+                ArMog = "Y";
+            }
+            else if (this.RbNee.Checked)
+            {
+                ArMog = "N";
+            }
+            else
+            {
+                throw new Exception("Maak een keuze");
+            }
+
+            try
+            {
+                beheerder.activiteitToevoegen(TbAdresActi.Text, Convert.ToChar(ArMog), TbNaamActie.Text, TbOmschrijvingActi.Text, TbOrganisatieActie.Text, TbPlaatsActie.Text, TbPostcode.Text, Convert.ToDouble(TbPrijsActie.Text), TbTelefoonnummer.Text, TbTypeActie.Text);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+        #endregion
+
 
 
     }

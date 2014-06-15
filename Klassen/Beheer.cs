@@ -211,6 +211,19 @@ namespace Klassen
             }
         }
         #endregion
-      
+
+        #region ACTIVITEIT TOEVOEGEN
+        public void activiteitToevoegen(string adres, char arragement, string naam, string omschrijving, string organisatie, string plaats, string postcode, double prijs, string telefoonnummer, string type)
+        {
+            try
+            {
+                k.activiteitToevoegen(adres, arragement, naam, omschrijving, organisatie, plaats, postcode, prijs, telefoonnummer, type);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+        #endregion
     }
 }

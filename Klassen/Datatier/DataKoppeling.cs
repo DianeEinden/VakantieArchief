@@ -646,6 +646,32 @@ namespace DatabaseKoppeling
             }
         }
         #endregion
+
+        #region ACTIVITEIT TOEVOEGEN
+
+        public void activiteitToevoegen(string adres, char arragement, string naam, string omschrijving, string organisatie, string plaats, string postcode, double prijs, string telefoonnummer, string type)
+        {
+            using (OracleConnection conn = connection)
+            {
+                OracleCommand cmd = new OracleCommand("INSERT INTO ACTIVITEIT VALUES (:naam, :omschrijving, :organisatie, :adres, :postcode, :plaats, :telefoonnummer, null, :type, :arragement, :prijs, null, null, null)", conn);
+
+
+                cmd.Parameters.Add("ADRES", adres);
+                cmd.Parameters.Add("ARRAGEMENTMOGELIJK", arragement);
+                cmd.Parameters.Add("NAAM", naam);
+                cmd.Parameters.Add("OMSCHRIJVING", omschrijving);
+                cmd.Parameters.Add("ORGANISATIE", organisatie);
+                cmd.Parameters.Add("PLAATS", plaats);
+                cmd.Parameters.Add("POSTCODE", postcode);
+                cmd.Parameters.Add("PRIJS", prijs);
+                cmd.Parameters.Add("TELEFOONNUMMER", telefoonnummer);
+                cmd.Parameters.Add("SOORT", type);
+                connection.Open();
+                cmd.ExecuteNonQuery();
+                connection.Close();
+            }
+        }
+        #endregion
     }
 }
         
