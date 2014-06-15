@@ -13,11 +13,15 @@ namespace SE22_VakantieArchief
         private Klassen.Beheer beheerder;
         private Klassen.Land.Staatsvorm staatsvormpje;
         private Klassen.Boeking.VakSoort vakSoortje;
+        private Klassen.Accomodatie.AcSoort acSoortje;
+        private Klassen.Accomodatie.Verzorging verzorginkje;
         protected void Page_Load(object sender, EventArgs e)
         {
             this.beheerder = new Klassen.Beheer();
             this.DdlStaatsvorm.DataSource = Enum.GetValues(typeof(Land.Staatsvorm));
             this.DdlVaksoort.DataSource = Enum.GetValues(typeof(Boeking.VakSoort));
+            this.DdlAccomodatie.DataSource = Enum.GetValues(typeof(Accomodatie.AcSoort));
+            this.DdlVerzorging.DataSource = Enum.GetValues(typeof(Accomodatie.Verzorging));
         }
 
         #region EUROPA
@@ -358,10 +362,129 @@ namespace SE22_VakantieArchief
         }
         #endregion
 
+        #region REIS TOEVOEGEN
         protected void BtReisToevoegen_Click(object sender, EventArgs e)
         {
             beheerder.reisToevoegen(TbReistijd.Text, TbVertrekpunt.Text, TbAankomstpunt.Text, TbVertrek.Text, TbReiscode.Text);
         }
+        #endregion
+
+        #region ACCOMODATIE TOEVOEGEN
+        protected void BtVoegToeAcco_Click(object sender, EventArgs e)
+        {
+            // ACCOMODATIE SOORT
+            if (this.DdlAccomodatie.SelectedIndex == 0)
+            {
+                this.acSoortje = Accomodatie.AcSoort.Aparthotel;
+            }
+            else if (this.DdlAccomodatie.SelectedIndex == 1)
+            {
+                this.acSoortje = Accomodatie.AcSoort.Appartement;
+            }
+            else if (this.DdlAccomodatie.SelectedIndex == 2)
+            {
+                this.acSoortje = Accomodatie.AcSoort.BedAndBreakfast;
+            }
+            else if (this.DdlAccomodatie.SelectedIndex == 3)
+            {
+                this.acSoortje = Accomodatie.AcSoort.Boot;
+            }
+            else if (this.DdlAccomodatie.SelectedIndex == 4)
+            {
+                this.acSoortje = Accomodatie.AcSoort.Bungalow;
+            }
+            else if (this.DdlAccomodatie.SelectedIndex == 5)
+            {
+                this.acSoortje = Accomodatie.AcSoort.Camping;
+            }
+            else if (this.DdlAccomodatie.SelectedIndex == 6)
+            {
+                this.acSoortje = Accomodatie.AcSoort.CruiseSchip;
+            }
+            else if (this.DdlAccomodatie.SelectedIndex == 7)
+            {
+                this.acSoortje = Accomodatie.AcSoort.Hostel;
+            }
+            else if (this.DdlAccomodatie.SelectedIndex == 8)
+            {
+                this.acSoortje = Accomodatie.AcSoort.Hotel;
+            }
+            else if (this.DdlAccomodatie.SelectedIndex == 9)
+            {
+                this.acSoortje = Accomodatie.AcSoort.JungleHut;
+            }
+            else if (this.DdlAccomodatie.SelectedIndex == 10)
+            {
+                this.acSoortje = Accomodatie.AcSoort.NachtTrein;
+            }
+            else if (this.DdlAccomodatie.SelectedIndex == 11)
+            {
+                this.acSoortje = Accomodatie.AcSoort.VakantieWoning;
+            }
+
+            // VERZORGING
+            if (this.DdlVerzorging.SelectedIndex == 0)
+            {
+                this.verzorginkje = Accomodatie.Verzorging.AllInclusief;
+            }
+            else if (this.DdlVerzorging.SelectedIndex == 1)
+            {
+                this.verzorginkje = Accomodatie.Verzorging.HalfPension;
+            }
+            else if (this.DdlVerzorging.SelectedIndex == 2)
+            {
+                this.verzorginkje = Accomodatie.Verzorging.Logies;
+            }
+            else if (this.DdlVerzorging.SelectedIndex == 3)
+            {
+                this.verzorginkje = Accomodatie.Verzorging.LogiesOntbijt;
+            }
+            else if (this.DdlVerzorging.SelectedIndex == 4)
+            {
+                this.verzorginkje = Accomodatie.Verzorging.VolPension;
+            }
+
+
+            try
+            {
+                beheerder.accomodatieToevoegen(TbAdres.Text, TbCategorie.Text, TbNaam.Text, TbPostcode.Text, TbPlaats.Text, acSoortje, TbTelefoonnummer.Text, verzorginkje, TbWebsite.Text);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+        #endregion
+
+        #region PLAATS TOEVOEGEN
+        protected void BtVoegToePlaats_Click(object sender, EventArgs e)
+        {
+            string SofD;
+            if (this.RbStad.Checked)
+            {
+                SofD = "Dorp";
+            }
+            else if (this.RbPlaats.Checked)
+            {
+                SofD = "Stad";
+            }
+            else
+            {
+                throw new Exception("Maak een keuze");
+            }
+
+            try
+            {
+                beheerder.plaatsToevoegen(Convert.ToDouble(TbAantalInwonersPl.Text), Convert.ToInt32(TbAreacode.Text), TbPlaatsnaam.Text, Convert.ToString(SofD), TbLandcodePl.Text);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+        }
+        #endregion
+
 
 
     }

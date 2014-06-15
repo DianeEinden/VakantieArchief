@@ -182,6 +182,35 @@ namespace Klassen
             }
         }
         #endregion
+
+        // PROBLEMEN MET WEGSCHRIJVEN VAN ENUMWAARDE
+        #region ACCOMODATIE TOEVOEGEN
+        public void accomodatieToevoegen(string adres, string categorie, string naam, string postcode, string plaats, Accomodatie.AcSoort soort, string telefoonnummer, Accomodatie.Verzorging verzorging, string website)
+        {
+            try
+            {
+                k.accomodatieToevoegen(adres, categorie, naam, postcode, plaats, soort, telefoonnummer, verzorging, website);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+        #endregion
+
+        #region PLAATS TOEVOEGEN
+        public void plaatsToevoegen(double aantalInwoners, int areacode, string plaatsnaam, string stadOfDorp, string Landcode)
+        {
+            try
+            {
+                k.plaatsToevoegen(aantalInwoners, areacode, plaatsnaam, stadOfDorp, Landcode);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+        #endregion
       
     }
 }

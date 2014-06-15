@@ -533,6 +533,7 @@ namespace DatabaseKoppeling
         }
         #endregion
 
+        // PROBLEMEN MET ENUMWAARDE WEGSCHRIJVEN
         #region LAND TOEVOEGEN
 
         public void LandToevoegen(double aantalInwoners, string cultuur, string hoofdstad, string landcode, int landnummer, string ligging, string naam, double oppervlakte, Land.Staatsvorm staatsvorm, char tijdsverschil, string valuta, string voertaal)
@@ -559,6 +560,7 @@ namespace DatabaseKoppeling
         }
         #endregion
 
+        // PROBLEMEN MET ENUMWAARDE WEGSCRIJVEN
         #region BOEKING TOEVOEGEN
 
         public void boekingToevoegen(string boekinsNummer, DateTime datumRetour, DateTime datumVertrek, string organisatie, string paspoortID, Boeking.VakSoort soortVakantie, double totaalPrijs, char visum, string voertuig, string landcode)
@@ -595,6 +597,49 @@ namespace DatabaseKoppeling
                 cmd.Parameters.Add("AANKOMSTPUNT", aankomstpunt);
                 cmd.Parameters.Add("VERTREKTIJD", vertrektijd);
                 cmd.Parameters.Add("REISCODE", reiscode);
+                connection.Open();
+                cmd.ExecuteNonQuery();
+                connection.Close();
+            }
+        }
+        #endregion
+
+        // PROBLEMEN MET ENUMWAARDE WEGSCRIJVEN
+        #region ACCOMODATIE TOEVOEGEN
+
+        public void accomodatieToevoegen(string adres, string categorie, string naam, string postcode, string plaats, Accomodatie.AcSoort soort, string telefoonnummer, Accomodatie.Verzorging verzorging, string website)
+        {
+            using (OracleConnection conn = connection)
+            {
+                OracleCommand cmd = new OracleCommand("INSERT INTO ACCOMODATIE VALUES (:adres, :categorie, :naam, :postcode, :plaats, :soort, :telefoonnummer, :verzorging, :website, null, null);)", conn);
+                cmd.Parameters.Add("ADRES", adres);
+                cmd.Parameters.Add("CATEGORIE", categorie);
+                cmd.Parameters.Add("NAAM", naam);
+                cmd.Parameters.Add("POSTCODE", postcode);
+                cmd.Parameters.Add("PLAATS", plaats);
+                cmd.Parameters.Add("SOORT", soort);
+                cmd.Parameters.Add("TELEFOONNUMMER", telefoonnummer);
+                cmd.Parameters.Add("VERZORGING", verzorging);
+                cmd.Parameters.Add("WEBSITE", website);
+                connection.Open();
+                cmd.ExecuteNonQuery();
+                connection.Close();
+            }
+        }
+        #endregion
+
+        #region PLAATS TOEVOEGEN
+
+        public void plaatsToevoegen(double aantalInwoners, int areacode, string plaatsnaam, string stadOfDorp, string Landcode)
+        {
+            using (OracleConnection conn = connection)
+            {
+                OracleCommand cmd = new OracleCommand("INSERT INTO PLAATS VALUES (:plaatsnaam, :aantalInwoners, :stadOfDorp, :areacode, :Landcode, null, null, null);)", conn);
+                cmd.Parameters.Add("PLAATSNAAM", plaatsnaam);
+                cmd.Parameters.Add("AANTALINWONERS", aantalInwoners);
+                cmd.Parameters.Add("STADOFDORP", stadOfDorp);
+                cmd.Parameters.Add("AREACODE", areacode);
+                cmd.Parameters.Add("LAND_LANDCODE", Landcode);
                 connection.Open();
                 cmd.ExecuteNonQuery();
                 connection.Close();

@@ -146,16 +146,83 @@
         <asp:ListBox ID="LbAccomodatie" runat="server" Width="1020px"></asp:ListBox>
         <br />
         <br />
+        Adres:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:TextBox ID="TbAdres" runat="server"></asp:TextBox>
+        <br />
+            Categorie:&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<asp:TextBox ID="TbCategorie" runat="server"></asp:TextBox>
+&nbsp;<br />
+            Naam:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;<asp:TextBox ID="TbDatumvertrek0" runat="server"></asp:TextBox>
+&nbsp;<br />
+            Postcode:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:TextBox ID="TbPostcode" runat="server"></asp:TextBox>
+        <br />
+            Plaats:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:TextBox ID="TbPlaats" runat="server"></asp:TextBox>
+        <br />
+            Accomodatie soort:&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<asp:DropDownList ID="DdlAccomodatie" runat="server">
+            </asp:DropDownList>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <br />
+            Telefoonnummer:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:TextBox ID="TbTelefoonnummer" runat="server"></asp:TextBox>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+            Verzorging:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <asp:DropDownList ID="DdlVerzorging" runat="server">
+            </asp:DropDownList>
+        <br />
+            Website:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:TextBox ID="TbWebsite" runat="server"></asp:TextBox>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+        <br />
+        <asp:Button ID="BtVoegToeAcco" runat="server" OnClick="BtVoegToeAcco_Click" Text="Voeg toe" Width="279px" />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+        <br />
+        <br />
         <asp:Button ID="BtPlaatsen" runat="server" OnClick="BtPlaatsen_Click" Text="Plaatsen bekijken" />
         <br />
         <asp:ListBox ID="LbPlaatsen" runat="server" Width="1018px"></asp:ListBox>
         <br />
         <br />
+        Aantal inwoners:&nbsp;&nbsp;&nbsp;
+        <asp:TextBox ID="TbAantalInwonersPl" runat="server"></asp:TextBox>
+        <br />
+        Areacode:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:TextBox ID="TbAreacode" runat="server"></asp:TextBox>
+        <br />
+        Plaatsnaam:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:TextBox ID="TbPlaatsnaam" runat="server"></asp:TextBox>
+        <br />
+        Stad of dorp:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:RadioButton ID="RbStad" runat="server" Text="Stad" />
+&nbsp;&nbsp;&nbsp;
+        <asp:RadioButton ID="RbPlaats" runat="server" Text="Plaats" />
+        <br />
+        Landcode:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:TextBox ID="TbLandcodePl" runat="server"></asp:TextBox>
+        <br />
+        <br />
+        <asp:Button ID="BtVoegToePlaats" runat="server" OnClick="BtVoegToePlaats_Click" Text="Voeg toe" Width="313px" />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
         <asp:Button ID="BtActiviteit" runat="server" OnClick="BtActiviteit_Click" Text="Activiteiten overzicht" />
         <br />
         <asp:ListBox ID="LbActiviteit" runat="server" Width="993px"></asp:ListBox>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
         <p>
-            <asp:Button ID="BtBezienswaardigheid" runat="server" OnClick="BtBezienswaardigheid_Click" Text="Bezienswaardigheden" />
+            <asp:Button ID="BtBezienswaardigheid" runat="server" Text="Bezienswaardigheden" />
         </p>
         <p>
             <asp:ListBox ID="LbKbzw" runat="server" Width="1003px"></asp:ListBox>
