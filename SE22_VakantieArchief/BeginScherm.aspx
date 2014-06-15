@@ -80,6 +80,10 @@
         <asp:Button ID="BtVoegToe" runat="server" OnClick="BtVoegToe_Click" Text="Voeg toe" Width="357px" />
         <br />
     
+        <br />
+        <br />
+        <br />
+    
     </div>
         <p>
             <asp:Button ID="BtBoekingOpvragen" runat="server" OnClick="BtBoekingOpvragen_Click" Text="Boeking opvragen" />
@@ -121,6 +125,12 @@
         <p>
             &nbsp;<asp:Button ID="BtBoekingToevoegen" runat="server" OnClick="BtBoekingToevoegen_Click" Text="Voeg toe" Width="302px" />
         </p>
+        <p>
+            &nbsp;</p>
+        <p>
+            &nbsp;</p>
+        <p>
+            &nbsp;</p>
         <asp:Button ID="BtReisInzien" runat="server" Text="Reis inzien" Width="209px" OnClick="BtReisInzien_Click" />
         <br />
         <asp:ListBox ID="LbReis" runat="server" Width="1457px"></asp:ListBox>
@@ -141,6 +151,12 @@
         <p>
             <asp:Button ID="BtReisToevoegen" runat="server" Text="Voeg toe" Width="302px" OnClick="BtReisToevoegen_Click" />
         </p>
+        <p>
+            &nbsp;</p>
+        <p>
+            &nbsp;</p>
+        <p>
+            &nbsp;</p>
         <asp:Button ID="BtAccomodatieBekijken" runat="server" OnClick="BtAccomodatieBekijken_Click" Text="Accomodatie bekijken" />
         <br />
         <asp:ListBox ID="LbAccomodatie" runat="server" Width="1020px"></asp:ListBox>
@@ -175,13 +191,15 @@
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
         <br />
         <br />
+        <br />
+        <br />
+        <br />
         <asp:Button ID="BtPlaatsen" runat="server" OnClick="BtPlaatsen_Click" Text="Plaatsen bekijken" />
         <br />
         <asp:ListBox ID="LbPlaatsen" runat="server" Width="1018px"></asp:ListBox>
         <br />
         <br />
-        Aantal inwoners:&nbsp;&nbsp;&nbsp;
-        <asp:TextBox ID="TbAantalInwonersPl" runat="server"></asp:TextBox>
+        Aantal inwoners:&nbsp;&nbsp;&nbsp; <asp:TextBox ID="TbAantalInwonersPl" runat="server"></asp:TextBox>
         <br />
         Areacode:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:TextBox ID="TbAreacode" runat="server"></asp:TextBox>
@@ -204,13 +222,13 @@
         <br />
         <br />
         <br />
+        <br />
         <asp:Button ID="BtActiviteit" runat="server" OnClick="BtActiviteit_Click" Text="Activiteiten overzicht" />
         <br />
         <asp:ListBox ID="LbActiviteit" runat="server" Width="993px"></asp:ListBox>
         <br />
         <br />
-        Adres:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:TextBox ID="TbAdresActi" runat="server"></asp:TextBox>
+        Adres:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:TextBox ID="TbAdresActi" runat="server"></asp:TextBox>
         <br />
         Arragement mogelijk:&nbsp;&nbsp;&nbsp;
         <asp:RadioButton ID="RbJa" runat="server" Text="Ja" />
@@ -243,6 +261,8 @@
         <br />
         <br />
         <asp:Button ID="BtVoegToeActie" runat="server" OnClick="BtVoegToeActie_Click" Text="Voeg toe" Width="355px" />
+        <br />
+        <br />
         <br />
         <br />
         <br />

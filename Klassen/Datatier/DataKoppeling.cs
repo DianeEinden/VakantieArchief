@@ -105,7 +105,7 @@ namespace DatabaseKoppeling
                     connection.Open();
                     OracleDataReader rdr = cmd.ExecuteReader();
                     List<Land> europeseLanden = new List<Land>();
-                    if (rdr.Read())
+                    while (rdr.Read())
                     {
                         double aantalInwoners = Convert.ToDouble(rdr["aantalInwoners"]);
                         string cultuur = Convert.ToString(rdr["cultuur"]);
@@ -121,7 +121,6 @@ namespace DatabaseKoppeling
                         string voertaal = Convert.ToString(rdr["voertaal"]);
 
                         europeseLanden.Add(new Land(aantalInwoners, cultuur, hoofdstad, landcode, landnummer, ligging, naam, oppervlakte, staadsvorm, tijdsverschil, valuta, voertaal));
-                        return europeseLanden;
                     }
                     return europeseLanden;
                 }
@@ -164,7 +163,6 @@ namespace DatabaseKoppeling
                         string voertaal = Convert.ToString(rdr["voertaal"]);
 
                         afrikaanseReizenLijst.Add(new Land(aantalInwoners, cultuur, hoofdstad, landcode, landnummer, ligging, naam, oppervlakte, staadsvorm, tijdsverschil, valuta, voertaal));
-                        return afrikaanseReizenLijst;
                     }
                     return afrikaanseReizenLijst;
                 }
@@ -207,7 +205,6 @@ namespace DatabaseKoppeling
                         string voertaal = Convert.ToString(rdr["voertaal"]);
 
                         azieReizenLijst.Add(new Land(aantalInwoners, cultuur, hoofdstad, landcode, landnummer, ligging, naam, oppervlakte, staadsvorm, tijdsverschil, valuta, voertaal));
-                        return azieReizenLijst;
                     }
                     return azieReizenLijst;
                 }
@@ -672,6 +669,8 @@ namespace DatabaseKoppeling
             }
         }
         #endregion
+
+
     }
 }
         
