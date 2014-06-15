@@ -25,6 +25,61 @@
         <br />
         <asp:ListBox ID="LbReizen" runat="server" Width="1463px"></asp:ListBox>
         <br />
+        <br />
+        LAND TOEVOEGEN<br />
+        Aantal inwoners:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:TextBox ID="TbAantalInwoners" runat="server"></asp:TextBox>
+        <br />
+        Cultuur:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:TextBox ID="TbCultuur" runat="server"></asp:TextBox>
+        <br />
+        Hoofdstad:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:TextBox ID="TbHoofdsdtad" runat="server"></asp:TextBox>
+        <br />
+        Landcode:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:TextBox ID="TbLandcode" runat="server"></asp:TextBox>
+        <br />
+        Landnummer:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:TextBox ID="TbLandnummer" runat="server"></asp:TextBox>
+        <br />
+        Ligging:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:DropDownList ID="DdlLigging" runat="server">
+            <asp:ListItem>Europa</asp:ListItem>
+            <asp:ListItem>Afrika</asp:ListItem>
+            <asp:ListItem>Azie</asp:ListItem>
+            <asp:ListItem>Oceanie</asp:ListItem>
+            <asp:ListItem>Zuid-Amerika</asp:ListItem>
+            <asp:ListItem>Noord-Amerika</asp:ListItem>
+        </asp:DropDownList>
+        <br />
+        Naam:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:TextBox ID="TbNaam" runat="server"></asp:TextBox>
+        <br />
+        Oppervlakte:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:TextBox ID="TbOppervlakte" runat="server"></asp:TextBox>
+        <br />
+        Staatsvorm:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:DropDownList ID="DdlStaatsvorm" runat="server">
+            <asp:ListItem>Democratie</asp:ListItem>
+            <asp:ListItem>Dictatuur</asp:ListItem>
+            <asp:ListItem>Koningkrijk</asp:ListItem>
+            <asp:ListItem>Republiek</asp:ListItem>
+            <asp:ListItem></asp:ListItem>
+        </asp:DropDownList>
+        <br />
+        Tijdsverschil:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:RadioButton ID="RbY" runat="server" Text="Ja" />
+&nbsp;&nbsp;&nbsp;
+        <asp:RadioButton ID="RbN" runat="server" Text="Nee" />
+        <br />
+        Valuta:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:TextBox ID="TbValuta" runat="server"></asp:TextBox>
+        <br />
+        Voertaal:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:TextBox ID="TbVoertaal" runat="server"></asp:TextBox>
+        <br />
+        <br />
+        <asp:Button ID="BtVoegToe" runat="server" OnClick="BtVoegToe_Click" Text="Voeg toe" Width="357px" />
+        <br />
     
     </div>
         <p>

@@ -33,9 +33,10 @@ namespace Klassen
         }
 
 
-        // METHODEN
-        
-        public void Aanmelden(string naam, string ww)
+       // METHODEN
+
+       #region AANMELDEN
+       public void Aanmelden(string naam, string ww)
         {
             try
             {
@@ -44,12 +45,12 @@ namespace Klassen
             catch
             {
                 throw new Exception("Gegevens komen al voor");
-            }
-                
+            }  
         }
+       #endregion
 
-        #region INLOGGEN
-        public bool Inloggen(string naam, string ww)
+       #region INLOGGEN
+       public bool Inloggen(string naam, string ww)
         {
             Gebruiker g = k.Login(naam, ww);
             return g != null;
@@ -138,6 +139,19 @@ namespace Klassen
         }
         #endregion
 
+        #region LAND TOEVOEGEN
+        public void LandToevoegen(double aantalInwoners, string cultuur, string hoofdstad, string landcode, int landnummer, string ligging, string naam, double oppervlakte, Land.Staatsvorm staatsvorm, char tijdsverschil, string valuta, string voertaal)
+        {
+            try
+            {
+                k.LandToevoegen(aantalInwoners, cultuur, hoofdstad, landcode, landnummer, ligging, naam, oppervlakte, staatsvorm, tijdsverschil, valuta, voertaal);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+        #endregion
       
     }
 }

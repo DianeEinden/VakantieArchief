@@ -11,9 +11,11 @@ namespace SE22_VakantieArchief
     public partial class BeginScherm : System.Web.UI.Page
     {
         private Klassen.Beheer beheerder;
+        private Klassen.Land.Staatsvorm staatsvormpje;
         protected void Page_Load(object sender, EventArgs e)
         {
             this.beheerder = new Klassen.Beheer();
+            this.DdlStaatsvorm.DataSource = Enum.GetValues(typeof(Land.Staatsvorm));
         }
 
         #region EUROPA
@@ -218,5 +220,55 @@ namespace SE22_VakantieArchief
 
         }
         #endregion
+
+        #region LAND TOEVOEGEN
+        protected void BtVoegToe_Click(object sender, EventArgs e)
+        {
+            // TIJDSVERSCHIL
+            char tijdsverschil;
+            if (this.RbN.Checked)
+            {
+                tijdsverschil = 'N';
+            }
+            else if(this.RbY.Checked)
+            {
+                tijdsverschil = 'Y';
+            }
+            else
+            {
+                throw new Exception("Maak een keuze");
+            }
+
+            // STAADSVORM
+            if (this.DdlStaatsvorm.SelectedIndex == 0)
+            {
+                this.staatsvormpje = Land.Staatsvorm.Democratie;
+            }
+            else if (this.DdlStaatsvorm.SelectedIndex == 1)
+            {
+                this.staatsvormpje = Land.Staatsvorm.Dictatuur;
+            }
+            else if (this.DdlStaatsvorm.SelectedIndex == 2)
+            {
+                this.staatsvormpje = Land.Staatsvorm.Koningkrijk;
+            }
+            else if (this.DdlStaatsvorm.SelectedIndex == 3)
+            {
+                this.staatsvormpje = Land.Staatsvorm.Republiek;
+            }
+
+
+            try
+            {
+                beheerder.LandToevoegen(Convert.ToDouble(TbAantalInwoners.Text), TbCultuur.Text, TbHoofdsdtad.Text, TbLandcode.Text, Convert.ToInt32(TbLandnummer.Text), DdlLigging.SelectedValue, TbNaam.Text, Convert.ToDouble(TbOppervlakte.Text), staatsvormpje, tijdsverschil, TbValuta.Text, TbVoertaal.Text);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+        #endregion
+
+
     }
 }

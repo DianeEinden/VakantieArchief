@@ -533,7 +533,31 @@ namespace DatabaseKoppeling
         }
         #endregion
 
+        #region LAND TOEVOEGEN
 
+        public void LandToevoegen(double aantalInwoners, string cultuur, string hoofdstad, string landcode, int landnummer, string ligging, string naam, double oppervlakte, Land.Staatsvorm staatsvorm, char tijdsverschil, string valuta, string voertaal)
+        {
+            using (OracleConnection conn = connection)
+            {
+                OracleCommand cmd = new OracleCommand("INSERT INTO LAND VALUES (':landcode', ':naam', :landnummer, ':hoofdstad', ':voertaal', ':valuta', ':cultuur', ':staatsvorm', ':tijdsverschil', ':ligging', :oppervlakte , :aantalInwoners, null);", conn);
+                cmd.Parameters.Add("AANTALINWONERS", aantalInwoners);
+                cmd.Parameters.Add("CULTUUR", cultuur);
+                cmd.Parameters.Add("HOOFDSTAD", hoofdstad);
+                cmd.Parameters.Add("LANDCODE", landcode);
+                cmd.Parameters.Add("LANDNUMMER", landnummer);
+                cmd.Parameters.Add("LIGGING", ligging);
+                cmd.Parameters.Add("NAAM", naam);
+                cmd.Parameters.Add("OPPERVLAKTE", oppervlakte);
+                cmd.Parameters.Add("STAATSVORM", staatsvorm);
+                cmd.Parameters.Add("TIJDSVERSCHIL", tijdsverschil);
+                cmd.Parameters.Add("VALUTA", valuta);
+                cmd.Parameters.Add("VOERTAAL", voertaal);
+                connection.Open();
+                cmd.ExecuteNonQuery();
+                connection.Close();
+            }
+        }
+        #endregion
 
     }
 }
