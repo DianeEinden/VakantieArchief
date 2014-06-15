@@ -539,7 +539,7 @@ namespace DatabaseKoppeling
         {
             using (OracleConnection conn = connection)
             {
-                OracleCommand cmd = new OracleCommand("INSERT INTO LAND VALUES (':landcode', ':naam', :landnummer, ':hoofdstad', ':voertaal', ':valuta', ':cultuur', ':staatsvorm', ':tijdsverschil', ':ligging', :oppervlakte , :aantalInwoners, null);", conn);
+                OracleCommand cmd = new OracleCommand("INSERT INTO LAND VALUES (':landcode', ':naam', :landnummer, ':hoofdstad', ':voertaal', ':valuta', ':cultuur', ':staatsvorm', ':tijdsverschil', ':ligging', :oppervlakte , :aantalInwoners, null)", conn);
                 cmd.Parameters.Add("AANTALINWONERS", aantalInwoners);
                 cmd.Parameters.Add("CULTUUR", cultuur);
                 cmd.Parameters.Add("HOOFDSTAD", hoofdstad);
@@ -559,6 +559,29 @@ namespace DatabaseKoppeling
         }
         #endregion
 
+        #region BOEKING TOEVOEGEN
+
+        public void boekingToevoegen(string boekinsNummer, DateTime datumRetour, DateTime datumVertrek, string organisatie, string paspoortID, Boeking.VakSoort soortVakantie, double totaalPrijs, char visum, string voertuig, string landcode)
+        {
+            using (OracleConnection conn = connection)
+            {
+                OracleCommand cmd = new OracleCommand("INSERT INTO BOEKING VALUES (:boekinsNummer, :datumRetour, :datumVertrek, :organisatie, :paspoortID, :soortVakantie, :totaalPrijs, :visum, :voertuig, :landcode)", conn);
+                cmd.Parameters.Add("BOEKINGSNUMMER", boekinsNummer);
+                cmd.Parameters.Add("DATUMRETOUR", datumRetour);
+                cmd.Parameters.Add("DATUMVERTREK", datumVertrek);
+                cmd.Parameters.Add("ORGANISATIE", organisatie);
+                cmd.Parameters.Add("IDKAARTOFPASPOORT", paspoortID);
+                cmd.Parameters.Add("SOORTVAKANTIE", soortVakantie);
+                cmd.Parameters.Add("TOTAALPRIJS", totaalPrijs);
+                cmd.Parameters.Add("VISUM", visum);
+                cmd.Parameters.Add("VOERTUIG", voertuig);
+                cmd.Parameters.Add("LAND_LANDCODE", landcode);
+                connection.Open();
+                cmd.ExecuteNonQuery();
+                connection.Close();
+            }
+        }
+        #endregion
     }
 }
         

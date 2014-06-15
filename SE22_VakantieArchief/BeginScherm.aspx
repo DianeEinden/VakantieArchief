@@ -26,7 +26,6 @@
         <asp:ListBox ID="LbReizen" runat="server" Width="1463px"></asp:ListBox>
         <br />
         <br />
-        LAND TOEVOEGEN<br />
         Aantal inwoners:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:TextBox ID="TbAantalInwoners" runat="server"></asp:TextBox>
         <br />
@@ -85,6 +84,42 @@
         <p>
             <asp:Button ID="BtBoekingOpvragen" runat="server" OnClick="BtBoekingOpvragen_Click" Text="Boeking opvragen" />
             <asp:ListBox ID="LbBoeking" runat="server" Width="1160px"></asp:ListBox>
+        </p>
+        <p>
+            Boekingsnummer:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:TextBox ID="TbBoekingsnummer" runat="server"></asp:TextBox>
+        <br />
+            Datum retour:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="TbDatumRetour" runat="server"></asp:TextBox>
+&nbsp;<br />
+            Datum vertrek:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="TbDatumvertrek" runat="server"></asp:TextBox>
+&nbsp;<br />
+            Organisatie:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:TextBox ID="TbOrganisatie" runat="server"></asp:TextBox>
+        <br />
+            Paspoort of ID:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:RadioButton ID="RbPaspoort" runat="server" Text="Paspoort" />
+&nbsp;&nbsp;&nbsp;
+            <asp:RadioButton ID="RbID" runat="server" Text="ID-Kaart" />
+        <br />
+            Soort vakantie:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:DropDownList ID="DdlVaksoort" runat="server">
+            </asp:DropDownList>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <br />
+            Totaalprijs:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="TbTotaal" runat="server"></asp:TextBox>
+        <br />
+            Visum:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:RadioButton ID="RbVY" runat="server" Text="Ja" />
+&nbsp;&nbsp;&nbsp;
+            <asp:RadioButton ID="RbVN" runat="server" Text="Nee" />
+        <br />
+            Voertuig:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:TextBox ID="TbVoertuig" runat="server"></asp:TextBox>
+        <br />
+            Landcode:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:TextBox ID="TbVoertuig0" runat="server"></asp:TextBox>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+        <p>
+            &nbsp;<asp:Button ID="BtBoekingToevoegen" runat="server" OnClick="BtBoekingToevoegen_Click" Text="Voeg toe" Width="302px" />
         </p>
         <asp:Button ID="BtReisInzien" runat="server" Text="Reis inzien" Width="209px" OnClick="BtReisInzien_Click" />
         <br />

@@ -121,7 +121,7 @@ namespace Klassen
         }
         #endregion
 
-        // NOG CONTROLEREN
+        // NOG CONTROLEREN ALS DATABASE IS GEVULD
         #region KUNSTMATIGE-BEZIENSWAARDIGHEID
         public List<KunstmatigeBZW> KMbezienswaardigheden(int areacode)
         {
@@ -130,7 +130,7 @@ namespace Klassen
         }
         #endregion
 
-        // NOG CONTROLEREN
+        // NOG CONTROLEREN ALS DATABASE IS GEVULD
         #region NATUURLIJKE-BEZIENSWAARDIGHEID
         public List<NatuurlijkeBZW> NMbezienswaardigheden(int areacode)
         {
@@ -139,12 +139,28 @@ namespace Klassen
         }
         #endregion
 
+        // PROBLEMEN MET WEGSCHRIJVEN VAN ENUMWAARDE
         #region LAND TOEVOEGEN
         public void LandToevoegen(double aantalInwoners, string cultuur, string hoofdstad, string landcode, int landnummer, string ligging, string naam, double oppervlakte, Land.Staatsvorm staatsvorm, char tijdsverschil, string valuta, string voertaal)
         {
             try
             {
                 k.LandToevoegen(aantalInwoners, cultuur, hoofdstad, landcode, landnummer, ligging, naam, oppervlakte, staatsvorm, tijdsverschil, valuta, voertaal);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+        #endregion
+
+        // PROBLEMEN MET WEGSCHRIJVEN VAN ENUMWAARDE
+        #region BOEKING TOEVOEGEN
+        public void boekingToevoegen(string boekinsNummer, DateTime datumRetour, DateTime datumVertrek, string organisatie, string paspoortID, Boeking.VakSoort soortVakantie, double totaalPrijs, char visum, string voertuig, string landcode)
+        {
+            try
+            {
+                k.boekingToevoegen(boekinsNummer, datumRetour, datumVertrek, organisatie, paspoortID, soortVakantie, totaalPrijs, visum, voertuig, landcode);
             }
             catch (Exception ex)
             {

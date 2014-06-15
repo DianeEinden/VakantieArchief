@@ -12,10 +12,12 @@ namespace SE22_VakantieArchief
     {
         private Klassen.Beheer beheerder;
         private Klassen.Land.Staatsvorm staatsvormpje;
+        private Klassen.Boeking.VakSoort vakSoortje;
         protected void Page_Load(object sender, EventArgs e)
         {
             this.beheerder = new Klassen.Beheer();
             this.DdlStaatsvorm.DataSource = Enum.GetValues(typeof(Land.Staatsvorm));
+            this.DdlVaksoort.DataSource = Enum.GetValues(typeof(Boeking.VakSoort));
         }
 
         #region EUROPA
@@ -190,7 +192,6 @@ namespace SE22_VakantieArchief
         }
         #endregion
 
-        // NOG TESTEN
         #region BEZIENSWAARDIGHEDEN
         protected void BtBezienswaardigheid_Click(object sender, EventArgs e)
         {
@@ -261,6 +262,94 @@ namespace SE22_VakantieArchief
             try
             {
                 beheerder.LandToevoegen(Convert.ToDouble(TbAantalInwoners.Text), TbCultuur.Text, TbHoofdsdtad.Text, TbLandcode.Text, Convert.ToInt32(TbLandnummer.Text), DdlLigging.SelectedValue, TbNaam.Text, Convert.ToDouble(TbOppervlakte.Text), staatsvormpje, tijdsverschil, TbValuta.Text, TbVoertaal.Text);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+        #endregion
+
+        #region BOEKING TOEVOEGEN
+        protected void BtBoekingToevoegen_Click(object sender, EventArgs e)
+        {
+            // PASSPOORT OF ID-KAART
+            string PasId;
+            if (this.RbPaspoort.Checked)
+            {
+                PasId = "Paspoort";
+            }
+            else if (this.RbID.Checked)
+            {
+                PasId = "ID-Kaart";
+            }
+            else
+            {
+                throw new Exception("Maak een keuze");
+            }
+
+            // VISUM NODIG
+            string visum;
+            if(this.RbVN.Checked)
+            {
+                visum = "Y";
+            }
+            else if(this.RbVY.Checked)
+            {
+                visum = "N";
+            }
+            else
+            {
+                throw new Exception("Maak een keuze");
+            }
+
+
+            // VAKSOORT
+            if (this.DdlVaksoort.SelectedIndex == 0)
+            {
+                this.vakSoortje = Boeking.VakSoort.ActieveVakantie;
+            }
+            else if (this.DdlVaksoort.SelectedIndex == 1)
+            {
+                this.vakSoortje = Boeking.VakSoort.Alleengaandenreis;
+            }
+            else if (this.DdlVaksoort.SelectedIndex == 2)
+            {
+                this.vakSoortje = Boeking.VakSoort.AutoVakantie;
+            }
+            else if (this.DdlVaksoort.SelectedIndex == 3)
+            {
+                this.vakSoortje = Boeking.VakSoort.Busreis;
+            }
+            else if (this.DdlVaksoort.SelectedIndex == 4)
+            {
+                this.vakSoortje = Boeking.VakSoort.Cruise;
+            }
+            else if (this.DdlVaksoort.SelectedIndex == 5)
+            {
+                this.vakSoortje = Boeking.VakSoort.FlyDrive;
+            }
+            else if (this.DdlVaksoort.SelectedIndex == 6)
+            {
+                this.vakSoortje = Boeking.VakSoort.Rondreis;
+            }
+            else if (this.DdlVaksoort.SelectedIndex == 7)
+            {
+                this.vakSoortje = Boeking.VakSoort.SingleReis;
+            }
+            else if (this.DdlVaksoort.SelectedIndex == 8)
+            {
+                this.vakSoortje = Boeking.VakSoort.Stedentrip;
+            }
+            else if (this.DdlVaksoort.SelectedIndex == 9)
+            {
+                this.vakSoortje = Boeking.VakSoort.ZonVakantie;
+            }
+
+
+            try
+            {
+                beheerder.boekingToevoegen(TbBoekingsnummer.Text, Convert.ToDateTime(TbDatumRetour.Text), Convert.ToDateTime(TbDatumvertrek.Text), TbOrganisatie.Text, PasId, vakSoortje, Convert.ToDouble(TbTotaal.Text), Convert.ToChar(visum), TbVoertuig.Text, TbVoertuig0.Text);
             }
             catch (Exception ex)
             {
