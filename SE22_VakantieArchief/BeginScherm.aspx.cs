@@ -21,17 +21,22 @@ namespace SE22_VakantieArchief
         {
             this.beheerder = new Klassen.Beheer();
             this.DdlStaatsvorm.DataSource = Enum.GetValues(typeof(Land.Staatsvorm));
+            DdlStaatsvorm.DataBind();
             this.DdlVaksoort.DataSource = Enum.GetValues(typeof(Boeking.VakSoort));
+            DdlVaksoort.DataBind();
             this.DdlAccomodatie.DataSource = Enum.GetValues(typeof(Accomodatie.AcSoort));
+            DdlAccomodatie.DataBind();
             this.DdlVerzorging.DataSource = Enum.GetValues(typeof(Accomodatie.Verzorging));
+            DdlVerzorging.DataBind();
         }
 
         #region EUROPA
         protected void BtEuropa_Click(object sender, EventArgs e)
         {
-            List<Land> Landen = new List<Land>(this.beheerder.EuropeseReizen()); 
+            List<Land> Landen = new List<Land>(this.beheerder.EuropeseReizen());
             GvLand.DataSource = Landen;
             GvLand.DataBind();
+            
 
             //LbReizen.Items.Clear();
             //List<Land> landen = new List<Land>(beheerder.EuropeseReizen());

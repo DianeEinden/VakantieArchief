@@ -14,6 +14,9 @@
         <asp:TextBox ID="TbWachtwoord" runat="server"></asp:TextBox>
         <asp:Button ID="BtAanmelden" runat="server" OnClick="BtAanmelden_Click" Text="Maak account aan" />
     
+    &nbsp;&nbsp;&nbsp;
+        <asp:Label ID="LbAanmelden" runat="server" Text="Gebruikersnaam is al bekend!" Visible="False"></asp:Label>
+    
     </div>
     </form>
 </body>

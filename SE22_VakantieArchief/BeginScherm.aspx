@@ -29,19 +29,9 @@
         <br />
         <br />
 
-        <asp:GridView ID="GvLand" runat="server" AutoGenerateColumns="False" Height="58px" Width="832px">
+        <asp:GridView ID="GvLand" runat="server" AutoGenerateColumns="True" Height="58px" Width="832px">
             <Columns>
-                <asp:BoundField AccessibleHeaderText="LAND" HeaderText="Landnummer" />
-                <asp:BoundField AccessibleHeaderText="LAND" HeaderText="Landcode" />
-                <asp:BoundField AccessibleHeaderText="LAND" HeaderText="Landnaam" />
-                <asp:BoundField AccessibleHeaderText="LAND" HeaderText="Hoofdstad" />
-                <asp:BoundField AccessibleHeaderText="LAND" HeaderText="Voertaal" />
-                <asp:BoundField AccessibleHeaderText="LAND" HeaderText="Cultuur" />
-                <asp:BoundField AccessibleHeaderText="LAND" HeaderText="Valuta" />
-                <asp:BoundField AccessibleHeaderText="LAND" HeaderText="Staatsvorm" />
-                <asp:BoundField AccessibleHeaderText="LAND" HeaderText="Tijdsverschil" />
-                <asp:BoundField AccessibleHeaderText="LAND" HeaderText="Aantal inwoners" />
-                <asp:BoundField AccessibleHeaderText="LAND" HeaderText="Oppervlakte" />
+
             </Columns>
         </asp:GridView>
         <br />
@@ -82,11 +72,6 @@
         <br />
         Staatsvorm:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:DropDownList ID="DdlStaatsvorm" runat="server">
-            <asp:ListItem>Democratie</asp:ListItem>
-            <asp:ListItem>Dictatuur</asp:ListItem>
-            <asp:ListItem>Koningkrijk</asp:ListItem>
-            <asp:ListItem>Republiek</asp:ListItem>
-            <asp:ListItem></asp:ListItem>
         </asp:DropDownList>
         <br />
         Tijdsverschil:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:RadioButton ID="RbY" runat="server" Text="Ja" />

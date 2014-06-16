@@ -23,7 +23,7 @@ namespace SE22_VakantieArchief
                 beheerder.Aanmelden(TbGebruikersnaam.Text, TbWachtwoord.Text);
                 Response.Redirect("~/Default.aspx");
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }

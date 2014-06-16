@@ -530,14 +530,13 @@ namespace DatabaseKoppeling
         }
         #endregion
 
-        // PROBLEMEN MET ENUMWAARDE WEGSCHRIJVEN
         #region LAND TOEVOEGEN
 
         public void LandToevoegen(double aantalInwoners, string cultuur, string hoofdstad, string landcode, int landnummer, string ligging, string naam, double oppervlakte, Land.Staatsvorm staatsvorm, char tijdsverschil, string valuta, string voertaal)
         {
             using (OracleConnection conn = connection)
             {
-                OracleCommand cmd = new OracleCommand("INSERT INTO LAND VALUES (':landcode', ':naam', :landnummer, ':hoofdstad', ':voertaal', ':valuta', ':cultuur', ':staatsvorm', ':tijdsverschil', ':ligging', :oppervlakte , :aantalInwoners, null)", conn);
+                OracleCommand cmd = new OracleCommand("INSERT INTO LAND VALUES (:landcode, :naam, :landnummer, :hoofdstad, :voertaal, :valuta, :cultuur, :staatsvorm, :tijdsverschil, :ligging, :oppervlakte , :aantalInwoners, null)", conn);
                 cmd.Parameters.Add("AANTALINWONERS", aantalInwoners);
                 cmd.Parameters.Add("CULTUUR", cultuur);
                 cmd.Parameters.Add("HOOFDSTAD", hoofdstad);
@@ -546,7 +545,7 @@ namespace DatabaseKoppeling
                 cmd.Parameters.Add("LIGGING", ligging);
                 cmd.Parameters.Add("NAAM", naam);
                 cmd.Parameters.Add("OPPERVLAKTE", oppervlakte);
-                cmd.Parameters.Add("STAATSVORM", staatsvorm);
+                cmd.Parameters.Add("STAATSVORM", staatsvorm.ToString());
                 cmd.Parameters.Add("TIJDSVERSCHIL", tijdsverschil);
                 cmd.Parameters.Add("VALUTA", valuta);
                 cmd.Parameters.Add("VOERTAAL", voertaal);
@@ -557,7 +556,6 @@ namespace DatabaseKoppeling
         }
         #endregion
 
-        // PROBLEMEN MET ENUMWAARDE WEGSCRIJVEN
         #region BOEKING TOEVOEGEN
 
         public void boekingToevoegen(string boekinsNummer, DateTime datumRetour, DateTime datumVertrek, string organisatie, string paspoortID, Boeking.VakSoort soortVakantie, double totaalPrijs, char visum, string voertuig, string landcode)
@@ -570,7 +568,7 @@ namespace DatabaseKoppeling
                 cmd.Parameters.Add("DATUMVERTREK", datumVertrek);
                 cmd.Parameters.Add("ORGANISATIE", organisatie);
                 cmd.Parameters.Add("IDKAARTOFPASPOORT", paspoortID);
-                cmd.Parameters.Add("SOORTVAKANTIE", soortVakantie);
+                cmd.Parameters.Add("SOORTVAKANTIE", soortVakantie.ToString());
                 cmd.Parameters.Add("TOTAALPRIJS", totaalPrijs);
                 cmd.Parameters.Add("VISUM", visum);
                 cmd.Parameters.Add("VOERTUIG", voertuig);
@@ -601,7 +599,6 @@ namespace DatabaseKoppeling
         }
         #endregion
 
-        // PROBLEMEN MET ENUMWAARDE WEGSCRIJVEN
         #region ACCOMODATIE TOEVOEGEN
 
         public void accomodatieToevoegen(string adres, string categorie, string naam, string postcode, string plaats, Accomodatie.AcSoort soort, string telefoonnummer, Accomodatie.Verzorging verzorging, string website)
@@ -614,9 +611,9 @@ namespace DatabaseKoppeling
                 cmd.Parameters.Add("NAAM", naam);
                 cmd.Parameters.Add("POSTCODE", postcode);
                 cmd.Parameters.Add("PLAATS", plaats);
-                cmd.Parameters.Add("SOORT", soort);
+                cmd.Parameters.Add("SOORT", soort.ToString());
                 cmd.Parameters.Add("TELEFOONNUMMER", telefoonnummer);
-                cmd.Parameters.Add("VERZORGING", verzorging);
+                cmd.Parameters.Add("VERZORGING", verzorging.ToString());
                 cmd.Parameters.Add("WEBSITE", website);
                 connection.Open();
                 cmd.ExecuteNonQuery();

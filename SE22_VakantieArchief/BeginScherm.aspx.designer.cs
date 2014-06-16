@@ -85,15 +85,6 @@ namespace SE22_VakantieArchief {
         protected global::System.Web.UI.WebControls.Button BtOceanie;
         
         /// <summary>
-        /// UpdateGvLand control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.UpdatePanel UpdateGvLand;
-        
-        /// <summary>
         /// GvLand control.
         /// </summary>
         /// <remarks>
